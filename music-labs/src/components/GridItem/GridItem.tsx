@@ -8,7 +8,7 @@ import CardMedia from '@mui/material/CardMedia';
 import { IGridItemData } from '../../interfaces/dummyDataInterface';
 
 export default function GridItem(props: IGridItemData) {
-
+  const partText = props.parts === 1? 'part' : 'parts';
   return (
     <Grid item xs={12} md={6} sx={{paddingBottom:'5px'}}>
       <CardActionArea component="a" href="#">
@@ -18,7 +18,7 @@ export default function GridItem(props: IGridItemData) {
               {props.name} - {props.artist}
             </Typography>
             <Typography variant="subtitle1" color="text.secondary">
-              {props.pages} pages • {props.parts} parts •  {props.duration}
+              {props.pages} pages • {props.parts} {partText} • {props.duration}
             </Typography>
             <Typography variant="subtitle1" paragraph>
               {props.instrument} • {props.genre}
