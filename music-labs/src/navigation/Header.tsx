@@ -9,21 +9,18 @@ import { useState } from 'react';
 import ListGridItems from '../components/GridItem/ListGridItems';
 import MainFeaturedPost from '../components/MainFeaturedPost';
 import { Link } from '@mui/material';
+import appConstants from '../constants/app-constants';
 
 const mainFeaturedPost = {
   title: 'OVER 400 000 SHEET MUSIC ARRANGEMENTS',
   description:
     "PLAY INSTANTLY ON ANY INSTRUMENT",
-  image: 'https://wallpaperset.com/w/full/2/a/a/167540.jpg',
+  image: appConstants.featuredPostImageSrc,
   imageText: 'piano background',
 };
 
 const sections = [
   { title: 'Home', url: '#' },
-  { title: 'Songs', url: '#' },
-  { title: 'Artists', url: '#' },
-  { title: 'Genres', url: '#' },
-  { title: 'Instruments', url: '#' },
   { title: 'Request Sheet Music', url: '#' },
   { title: 'Blog', url: '#' },
   { title: 'About Us', url: '#'}
@@ -109,7 +106,7 @@ export default function Header() {
       <Toolbar
         component="nav"
         variant="dense"
-        sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
+        sx={{ overflowX: 'auto' }}
       >
         {sections.map((section) => (
           <Link
@@ -118,7 +115,7 @@ export default function Header() {
             key={section.title}
             variant="body2"
             href={section.url}
-            sx={{ p: 1, flexShrink: 0 }}
+            sx={{ p: 1, flexShrink: 0, marginRight: '20px' }}
           >
             {section.title}
           </Link>
