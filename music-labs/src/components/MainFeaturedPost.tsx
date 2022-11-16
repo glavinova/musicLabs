@@ -3,19 +3,9 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
+import { IMainFeaturedPostProps } from '../interfaces/app-interfaces';
 
-interface MainFeaturedPostProps {
-  post: {
-    description: string;
-    image: string;
-    imageText: string;
-    title: string;
-  };
-}
-
-export default function MainFeaturedPost(props: MainFeaturedPostProps) {
-  const { post } = props;
-
+export default function MainFeaturedPost(props: IMainFeaturedPostProps) {
   return (
     <Paper
       sx={{
@@ -26,10 +16,10 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
-        backgroundImage: `url(${post.image})`,
+        backgroundImage: `url(${props.post.image})`,
       }}
     >
-      {<img style={{ display: 'none' }} src={post.image} alt={post.imageText} />}
+      {<img style={{ display: 'none' }} src={props.post.image} alt={props.post.imageText} />}
       <Box
         sx={{
           position: 'absolute',
@@ -50,10 +40,10 @@ export default function MainFeaturedPost(props: MainFeaturedPostProps) {
             }}
           >
             <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-              {post.title}
+              {props.post.title}
             </Typography>
             <Typography variant="h5" color="inherit" paragraph>
-              {post.description}
+              {props.post.description}
             </Typography>
           </Box>
         </Grid>

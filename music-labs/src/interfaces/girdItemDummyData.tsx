@@ -1,4 +1,4 @@
-import {IGridItemData, GenreEnum } from "./dummyDataInterface";
+import {IGridItemData, GenreEnum } from "./app-interfaces";
 
 export const GridItemData: IGridItemData[] = [
 {

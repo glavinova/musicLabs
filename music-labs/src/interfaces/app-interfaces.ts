@@ -8,7 +8,6 @@ export interface IGridItemData {
     instrument: string;
     price: number;
 }
-
 export enum GenreEnum {
     Classical = 'Classical',
     Popular = 'Popular',
@@ -17,3 +16,12 @@ export enum GenreEnum {
     Country = 'Country',
     Electronic = 'Electronic'
 } 
+
+export interface IMainFeaturedPostProps {
+    post: {
+      description: string;
+      image: string;
+      imageText: string;
+      title: string;
+    };
+  }

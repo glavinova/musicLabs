@@ -10,19 +10,6 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="#">
-        Music Labs
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 export default function Footer() {
   return (
     <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6}}>
@@ -42,7 +29,13 @@ export default function Footer() {
         >
           Music notes for everyone !
         </Typography>
-        <Copyright />
+        <Typography variant="body2" color="text.secondary" align="center">
+          {'Copyright © '}
+          <Link color="inherit" href="#">
+            Music Labs
+          </Link>{' '}
+          {new Date().getFullYear()}
+        </Typography>
       </Container>
     </Box>
   );

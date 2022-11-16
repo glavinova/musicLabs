@@ -1,30 +1,13 @@
 import React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import AudioFileIcon from '@mui/icons-material/AudioFile';
 import { useState } from 'react';
 import ListGridItems from '../components/GridItem/ListGridItems';
 import MainFeaturedPost from '../components/MainFeaturedPost';
 import { Link } from '@mui/material';
 import appConstants from '../constants/app-constants';
-
-const mainFeaturedPost = {
-  title: 'OVER 400 000 SHEET MUSIC ARRANGEMENTS',
-  description:
-    "PLAY INSTANTLY ON ANY INSTRUMENT",
-  image: appConstants.featuredPostImageSrc,
-  imageText: 'piano background',
-};
-
-const sections = [
-  { title: 'Home', url: '#' },
-  { title: 'Request Sheet Music', url: '#' },
-  { title: 'Blog', url: '#' },
-  { title: 'About Us', url: '#'}
-];
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -72,43 +55,32 @@ export default function Header() {
   const handleChange = (e: any) => {
     e.preventDefault();
     setSearchInput(e.target.value.toLowerCase());
-    
   };
 
   return (
     <React.Fragment>
+
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <AudioFileIcon sx={{ fontSize: 50 }} />
-        <Typography
-          component="h2"
-          variant="h5"
-          color="inherit"
-          align="left"
-          noWrap
-          sx={{ flex: 1 }}
-        >
-          MUSIC LABS
-        </Typography>
+      <img src="./images/logo.png" alt="Logo" style={{width: "300px", height: "70px", margin: "10px 0"}} />
         <Search>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
               type='text'
-              placeholder="Search for Artist Name or Song Title..."
-              
+              placeholder="Search for Artist Name, Song Title, Genre or Instrument..."   
               inputProps={{ 'aria-label': 'search' }}
               onChange={handleChange}
             />
          </Search>
-
       </Toolbar>
+
       <Toolbar
         component="nav"
         variant="dense"
         sx={{ overflowX: 'auto' }}
       >
-        {sections.map((section) => (
+        {appConstants.sections.map((section) => (
           <Link
             color="inherit"
             noWrap
@@ -121,14 +93,17 @@ export default function Header() {
           </Link>
         ))}
       </Toolbar>
-      <MainFeaturedPost post={mainFeaturedPost} />
+
+      <MainFeaturedPost post={appConstants.mainFeaturedPost} />
+
       <Toolbar
         component="nav"
         variant="dense"
         sx={{ justifyContent: 'space-between', overflowX: 'auto' }}
       > 
-      <ListGridItems  filteredTerm={searchInput} />
+      <ListGridItems filteredTerm={searchInput} />
       </Toolbar>
+
     </React.Fragment>
   );
 }

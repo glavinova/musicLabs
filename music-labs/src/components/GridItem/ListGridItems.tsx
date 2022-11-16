@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Container, InputLabel, MenuItem, Select, FormControl } from '@mui/material';
 import { useState } from 'react';
-import { IGridItemData } from '../../interfaces/dummyDataInterface';
+import { IGridItemData } from '../../interfaces/app-interfaces';
 import GridItemData from '../../interfaces/girdItemDummyData';
 import GridItem from './GridItem';
 
@@ -44,7 +44,11 @@ export default function ListGridItems(props: any) {
                 if(props.filteredTerm === ''){
                     return item;
                 }
-                else if(item.name.toLowerCase().includes(props.filteredTerm.toLowerCase()) || item.artist.toLowerCase().includes(props.filteredTerm.toLowerCase())){
+                else if(item.name.toLowerCase().includes(props.filteredTerm.toLowerCase()) 
+                        || item.artist.toLowerCase().includes(props.filteredTerm.toLowerCase())
+                        || item.instrument.toLowerCase().includes(props.filteredTerm.toLowerCase())
+                        || item.genre.toLowerCase().includes(props.filteredTerm.toLowerCase())
+                        ){
                     return item;
                 }
             }).map((i:IGridItemData, index: any) => 

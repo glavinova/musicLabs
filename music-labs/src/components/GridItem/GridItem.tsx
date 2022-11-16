@@ -5,11 +5,13 @@ import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { IGridItemData } from '../../interfaces/dummyDataInterface';
+import { IGridItemData } from '../../interfaces/app-interfaces';
 import appConstants from '../../constants/app-constants';
+import Link from '@mui/material/Link';
 
 export default function GridItem(props: IGridItemData) {
   const partText = props.parts === 1? 'part' : 'parts';
+
   return (
     <Grid item xs={12} md={6} sx={{paddingBottom:'5px'}}>
       <CardActionArea component="a" href="#">
@@ -27,7 +29,7 @@ export default function GridItem(props: IGridItemData) {
               ${props.price}
             </Typography>
             <Typography variant="subtitle1" color="primary">
-              More information...
+             <Link  color="primary" underline="none" href="/details" > More information... </Link> 
             </Typography>
           </CardContent>
           <CardMedia
