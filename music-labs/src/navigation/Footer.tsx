@@ -23,8 +23,6 @@ function Copyright() {
   );
 }
 
-
-
 export default function Footer() {
   return (
     <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6}}>

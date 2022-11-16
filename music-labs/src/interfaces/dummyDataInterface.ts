@@ -7,7 +7,6 @@ export interface IGridItemData {
     genre: GenreEnum;
     instrument: string;
     price: number;
-
 }
 
 export enum GenreEnum {

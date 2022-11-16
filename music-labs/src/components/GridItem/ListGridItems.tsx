@@ -35,35 +35,33 @@ export default function ListGridItems(props: any) {
             <MenuItem value="z-a">Song Name (Descending)</MenuItem>
             <MenuItem value="low-high">Price (Low-High)</MenuItem>
             <MenuItem value="high-low">Price (High-Low)</MenuItem>
-
             </Select>
             </FormControl>
-        </Container>
-        
-      <main>
-        <Grid container spacing={4}>
-        {data.filter(item => {
-            if(props.filteredTerm === ''){
-                return item;
+        </Container>      
+        <main>
+            <Grid container spacing={4}>
+            {data.filter(item => {
+                if(props.filteredTerm === ''){
+                    return item;
+                }
+                else if(item.name.toLowerCase().includes(props.filteredTerm.toLowerCase()) || item.artist.toLowerCase().includes(props.filteredTerm.toLowerCase())){
+                    return item;
+                }
+            }).map((i:IGridItemData, index: any) => 
+                <GridItem
+                key={index}
+                name={i.name}
+                artist={i.artist}
+                parts={i.parts}
+                pages={i.pages}
+                duration={i.duration}
+                genre={i.genre}
+                instrument={i.instrument}
+                price={i.price} />
+                )
             }
-            else if(item.name.toLowerCase().includes(props.filteredTerm.toLowerCase()) || item.artist.toLowerCase().includes(props.filteredTerm.toLowerCase())){
-                return item;
-            }
-        }).map((i:IGridItemData, index: any) => 
-            <GridItem
-            key={index}
-            name={i.name}
-            artist={i.artist}
-            parts={i.parts}
-            pages={i.pages}
-            duration={i.duration}
-            genre={i.genre}
-            instrument={i.instrument}
-            price={i.price} />
-            )
-        }
+            </Grid>
+        </main>  
         </Grid>
-      </main>    
-    </Grid>
     )
 }
