@@ -1,12 +1,12 @@
 import React from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import AudioFileIcon from '@mui/icons-material/AudioFile';
 import { Grid, CardActionArea, Card, CardContent, CardMedia, Button } from '@mui/material';
 import appConstants from '../../constants/app-constants';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Link from '@mui/material/Link';
+import DownloadButton from '../Download Button/DownloadBtn';
 
 export default function SongDetails(props: any) {
   return (
@@ -49,6 +49,7 @@ export default function SongDetails(props: any) {
             <Button size='large' variant="contained" endIcon={<ShoppingCartIcon />}>
                 BUY
             </Button>
+            <DownloadButton />
           </CardContent>
           <CardContent sx={{ flex: 1 }}>
           <Typography variant="subtitle1" paragraph sx={{marginTop: "75px"}}>
