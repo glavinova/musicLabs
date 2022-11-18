@@ -1,11 +1,13 @@
-import React from 'react';
 import { Grid, Container, InputLabel, MenuItem, Select, FormControl } from '@mui/material';
-import { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { IGridItemData } from '../../interfaces/app-interfaces';
 import GridItemData from '../../interfaces/girdItemDummyData';
 import GridItem from './GridItem';
+import AppContext from '../../store/app-context';
 
-export default function ListGridItems(props: any) {
+export default function ListGridItems() {
+    const appCtx = useContext(AppContext);
+    const {filterTerm} = appCtx;
     const sortedData = GridItemData.sort((a, b) => (a.name < b.name ? -1 : 1));
     const [data, setItemsData] = useState(sortedData);
     const [selectedSortType, setSortType] = useState("a-z");
@@ -21,7 +23,7 @@ export default function ListGridItems(props: any) {
     }
     return(
         <Grid container sx={{width:'100%'}}>
-        <Container >
+        <Container>
         <FormControl sx={{width: '20%', margin: '10px -20px', float: 'right'}}>
             <InputLabel id="sort-label">Sort</InputLabel>
             <Select
@@ -41,13 +43,13 @@ export default function ListGridItems(props: any) {
         <main>
             <Grid container spacing={4}>
             {data.filter(item => {
-                if(props.filteredTerm === ''){
+                if(filterTerm === ''){
                     return item;
                 }
-                else if(item.name.toLowerCase().includes(props.filteredTerm.toLowerCase()) 
-                        || item.artist.toLowerCase().includes(props.filteredTerm.toLowerCase())
-                        || item.instrument.toLowerCase().includes(props.filteredTerm.toLowerCase())
-                        || item.genre.toLowerCase().includes(props.filteredTerm.toLowerCase())
+                else if(item.name.toLowerCase().includes(filterTerm.toLowerCase()) 
+                        || item.artist.toLowerCase().includes(filterTerm.toLowerCase())
+                        || item.instrument.toLowerCase().includes(filterTerm.toLowerCase())
+                        || item.genre.toLowerCase().includes(filterTerm.toLowerCase())
                         ){
                     return item;
                 }
@@ -66,6 +68,6 @@ export default function ListGridItems(props: any) {
             }
             </Grid>
         </main>  
-        </Grid>
+    </Grid>
     )
 }

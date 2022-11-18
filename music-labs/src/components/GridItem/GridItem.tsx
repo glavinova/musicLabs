@@ -15,7 +15,7 @@ export default function GridItem(props: IGridItemData) {
   return (
     <Grid item xs={12} md={6} sx={{paddingBottom:'5px'}}>
       <CardActionArea component="a" href="#">
-        <Card sx={{ display: 'flex' }}>
+        <Card sx={{ display: 'flex', width: '100%' }}>
           <CardContent sx={{ flex: 1 }}>
             <Typography component="h2" variant="h5">
               {props.name} - {props.artist}

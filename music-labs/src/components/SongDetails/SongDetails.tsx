@@ -57,8 +57,8 @@ export default function SongDetails(props: any) {
               <br/>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta lacinia magna eget mollis. Fusce bibendum faucibus dolor, a lobortis ligula rutrum at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta lacinia magna eget mollis. Fusce bibendum faucibus dolor, a lobortis ligula rutrum at.
           </Typography>
-          <Button color="primary" sx={{float: "right"}}>
-            <Link href='/' underline="none">   
+          <Button >
+            <Link href='/' underline="none" color="primary" sx={{float: "right"}}>   
               <ArrowBackIcon style={{ fontSize: 15 }} />
               &nbsp;Back 
             </Link>
