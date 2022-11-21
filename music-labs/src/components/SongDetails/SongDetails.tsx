@@ -7,8 +7,11 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Link from '@mui/material/Link';
 import DownloadButton from '../Download Button/DownloadBtn';
+import { useLocation } from 'react-router';
 
-export default function SongDetails(props: any) {
+export default function SongDetails() {
+  const location = useLocation();
+  const {songDetails} = location.state;
   return (
     <React.Fragment>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
@@ -25,25 +28,25 @@ export default function SongDetails(props: any) {
           />
           <CardContent sx={{ flex: 1 }}>
             <Typography component="h2" variant="h5">
-              {props.name} Song Name
+              {songDetails.name}
             </Typography>
             <Typography variant="subtitle1" color="text.secondary" sx={{marginBottom: "20px"}}>
-                BY {props.artist} Artist Name
+                BY {songDetails.artist}
             </Typography>
             <Typography variant="subtitle1" paragraph>
-              <b>Price:</b> ${props.price}15.99
+              <b>Price:</b> ${songDetails.price}
               <br/>
-              <b>Instrument:</b> {props.instrument} piano/guitar
+              <b>Instrument:</b> {songDetails.instrument}
               <br/>
-              <b>Pages:</b> {props.pages} 1 page
+              <b>Pages:</b> {songDetails.pages}
               <br/>
-              <b>Duration:</b> {props.duration} 12:46
+              <b>Duration:</b> {songDetails.duration}
               <br/>
-              <b>Genre:</b> {props.genre} Classical
+              <b>Genre:</b> {songDetails.genre}
               <br/>
-              <b>Key:</b> D major, B minor
+              <b>Key:</b> {songDetails.songKey}
               <br/>
-              <b>Difficulty level:</b> Begginer
+              <b>Difficulty level:</b> {songDetails.difficulty}
               <br/>
             </Typography>
             <Button size='large' variant="contained" endIcon={<ShoppingCartIcon />}>
@@ -55,7 +58,7 @@ export default function SongDetails(props: any) {
           <Typography variant="subtitle1" paragraph sx={{marginTop: "75px"}}>
               <b>Song Description</b>
               <br/>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta lacinia magna eget mollis. Fusce bibendum faucibus dolor, a lobortis ligula rutrum at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta lacinia magna eget mollis. Fusce bibendum faucibus dolor, a lobortis ligula rutrum at.
+                {songDetails.description}
           </Typography>
           <Button >
             <Link href='/' underline="none" color="primary" sx={{float: "right"}}>   

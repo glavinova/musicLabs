@@ -1,6 +1,6 @@
 import { Grid, Container, InputLabel, MenuItem, Select, FormControl } from '@mui/material';
 import React, { useContext, useState } from 'react';
-import { IGridItemData } from '../../interfaces/app-interfaces';
+import { ISongDetails } from '../../interfaces/app-interfaces';
 import GridItemData from '../../interfaces/girdItemDummyData';
 import GridItem from './GridItem';
 import AppContext from '../../store/app-context';
@@ -53,9 +53,10 @@ export default function ListGridItems() {
                         ){
                     return item;
                 }
-            }).map((i:IGridItemData, index: any) => 
+            }).map((i:ISongDetails, index: any) => 
                 <GridItem
                 key={index}
+                id={i.id}
                 name={i.name}
                 artist={i.artist}
                 parts={i.parts}
@@ -63,7 +64,11 @@ export default function ListGridItems() {
                 duration={i.duration}
                 genre={i.genre}
                 instrument={i.instrument}
-                price={i.price} />
+                price={i.price} 
+                songKey={i.songKey}
+                difficulty={i.difficulty}
+                description={i.description}
+                />
                 )
             }
             </Grid>

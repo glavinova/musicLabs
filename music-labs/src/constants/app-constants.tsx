@@ -12,7 +12,8 @@ export const appConstants = {
         { title: 'Request Sheet Music', url: '#' },
         { title: 'Blog', url: '#' },
         { title: 'About Us', url: '#'}
-      ]      
+      ],
+    loremIpsumDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta lacinia magna eget mollis. Fusce bibendum faucibus dolor, a lobortis ligula rutrum at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta lacinia magna eget mollis."      
 }
 
 export default appConstants;

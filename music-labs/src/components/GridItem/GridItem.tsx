@@ -5,11 +5,11 @@ import Card from '@mui/material/Card';
 import CardActionArea from '@mui/material/CardActionArea';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import { IGridItemData } from '../../interfaces/app-interfaces';
+import { ISongDetails } from '../../interfaces/app-interfaces';
 import appConstants from '../../constants/app-constants';
-import Link from '@mui/material/Link';
+import { Link } from 'react-router-dom';
 
-export default function GridItem(props: IGridItemData) {
+export default function GridItem(props: ISongDetails) {
   const partText = props.parts === 1? 'part' : 'parts';
 
   return (
@@ -29,7 +29,12 @@ export default function GridItem(props: IGridItemData) {
               ${props.price}
             </Typography>
             <Typography variant="subtitle1" color="primary">
-             <Link  color="primary" underline="none" href="/details" > More information... </Link> 
+             <Link 
+              to="/details" 
+              state={{songDetails: props}} 
+              style={{textDecoration: "none", color: "#1976d2", cursor: "pointer"}}>
+                 More information... 
+             </Link> 
             </Typography>
           </CardContent>
           <CardMedia
