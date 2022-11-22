@@ -6,7 +6,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SongDetails from './components/SongDetails/SongDetails';
 import { Routes, Route } from "react-router-dom";
 import { AppContextProvider } from './store/app-context';
-import HomePage from './components/Home Page/HomePage';
+import HomePage from './components/HomePage/HomePage';
 import ErrorBoundary from './store/errorBoundary';
 
 const theme = createTheme();

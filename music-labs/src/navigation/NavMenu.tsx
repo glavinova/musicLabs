@@ -2,13 +2,14 @@ import React from 'react';
 import Toolbar from '@mui/material/Toolbar';
 import { Link } from '@mui/material';
 import appConstants from '../constants/app-constants';
+import styles from './NavigationStyles.module.css';
 
 export default function NavMenu() {
   return (
       <Toolbar
         component="nav"
         variant="dense"
-        sx={{ overflowX: 'auto' }}
+        className={styles.overflowXauto}
       >
         {appConstants.sections.map((section) => (
           <Link
@@ -17,7 +18,7 @@ export default function NavMenu() {
             key={section.title}
             variant="body2"
             href={section.url}
-            sx={{ p: 1, flexShrink: 0, marginRight: '20px' }}
+            className={styles.linkCustomStyle}
           >
             {section.title}
           </Link>

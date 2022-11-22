@@ -4,7 +4,8 @@ import Toolbar from '@mui/material/Toolbar';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import AppContext from '../../store/app-context';
-
+import styles from './SearchBar.module.css';
+import { Link } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -48,7 +49,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchBar() {
   const appCtx = useContext(AppContext);
-
   const handleChange = (e: any) => {
     e.preventDefault();
     appCtx.setSearchInput(e.target.value.toLowerCase());
@@ -57,7 +57,7 @@ export default function SearchBar() {
   return (
     <React.Fragment>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
-      <img src="./images/logo.png" alt="Logo" style={{width: "300px", height: "50px", margin: "10px 0"}} />
+      <img src="./images/logo.png" alt="Logo" className={styles.imgCustomStyle} />
         <Search>
             <SearchIconWrapper>
               <SearchIcon />

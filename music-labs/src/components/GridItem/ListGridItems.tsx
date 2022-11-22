@@ -4,6 +4,7 @@ import { ISongDetails } from '../../interfaces/app-interfaces';
 import GridItemData from '../../interfaces/girdItemDummyData';
 import GridItem from './GridItem';
 import AppContext from '../../store/app-context';
+import styles from './ListGridItems.module.css'
 
 export default function ListGridItems() {
     const appCtx = useContext(AppContext);
@@ -22,9 +23,9 @@ export default function ListGridItems() {
     setSortType(selectEvent.target.value);
     }
     return(
-        <Grid container sx={{width:'100%'}}>
+        <Grid container className={styles.width100}>
         <Container>
-        <FormControl sx={{width: '20%', margin: '10px -20px', float: 'right'}}>
+        <FormControl className={styles.formControlCustomStyle} sx={{margin: '10px -20px'}}>
             <InputLabel id="sort-label">Sort</InputLabel>
             <Select
             labelId="sort-label"
@@ -40,7 +41,7 @@ export default function ListGridItems() {
             </Select>
             </FormControl>
         </Container>      
-        <main style={{width: "100%"}}>
+        <main className={styles.width100}>
             <Grid container spacing={4}>
             {data.filter(item => {
                 if(filterTerm === ''){

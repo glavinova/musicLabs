@@ -8,15 +8,16 @@ import CardMedia from '@mui/material/CardMedia';
 import { ISongDetails } from '../../interfaces/app-interfaces';
 import appConstants from '../../constants/app-constants';
 import { Link } from 'react-router-dom';
+import styles from './GridItem.module.css';
 
 export default function GridItem(props: ISongDetails) {
   const partText = props.parts === 1? 'part' : 'parts';
 
   return (
-    <Grid item xs={12} md={6} sx={{paddingBottom:'5px'}}>
-      <CardActionArea component="a" href="#">
-        <Card sx={{ display: 'flex', width: '100%' }}>
-          <CardContent sx={{ flex: 1 }}>
+    <Grid item xs={12} md={6} className={styles.paddingBottom5}>
+      <CardActionArea>
+        <Card className={styles.cardCustomStyle}>
+          <CardContent className={styles.flex1}>
             <Typography component="h2" variant="h5">
               {props.name} - {props.artist}
             </Typography>
@@ -32,14 +33,15 @@ export default function GridItem(props: ISongDetails) {
              <Link 
               to="/details" 
               state={props}
-              style={{textDecoration: "none", color: "#1976d2", cursor: "pointer"}}>
+              className={styles.linkCustomStyle}>
                  More information... 
              </Link> 
             </Typography>
           </CardContent>
           <CardMedia
             component="img"
-            sx={{ width: 160, display: { xs: 'none', sm: 'block' } }}
+            className={styles.cardMediaCustomStyle}
+            sx={{ display: { xs: 'none', sm: 'block' } }}
             image={appConstants.gridItemImageSrc}
             alt="songSheets"
           />
