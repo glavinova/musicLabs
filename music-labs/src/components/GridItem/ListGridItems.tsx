@@ -1,11 +1,14 @@
-import React from 'react';
 import { Grid, Container, InputLabel, MenuItem, Select, FormControl } from '@mui/material';
-import { useState } from 'react';
-import { IGridItemData } from '../../interfaces/app-interfaces';
+import React, { useContext, useState } from 'react';
+import { ISongDetails } from '../../interfaces/app-interfaces';
 import GridItemData from '../../interfaces/girdItemDummyData';
 import GridItem from './GridItem';
+import AppContext from '../../store/app-context';
+import styles from './ListGridItems.module.css'
 
-export default function ListGridItems(props: any) {
+export default function ListGridItems() {
+    const appCtx = useContext(AppContext);
+    const {filterTerm} = appCtx;
     const sortedData = GridItemData.sort((a, b) => (a.name < b.name ? -1 : 1));
     const [data, setItemsData] = useState(sortedData);
     const [selectedSortType, setSortType] = useState("a-z");
@@ -20,9 +23,9 @@ export default function ListGridItems(props: any) {
     setSortType(selectEvent.target.value);
     }
     return(
-        <Grid container sx={{width:'100%'}}>
-        <Container >
-        <FormControl sx={{width: '20%', margin: '10px -20px', float: 'right'}}>
+        <Grid container className={styles.width100}>
+        <Container>
+        <FormControl className={styles.formControlCustomStyle} sx={{margin: '10px -20px'}}>
             <InputLabel id="sort-label">Sort</InputLabel>
             <Select
             labelId="sort-label"
@@ -38,22 +41,23 @@ export default function ListGridItems(props: any) {
             </Select>
             </FormControl>
         </Container>      
-        <main>
+        <main className={styles.width100}>
             <Grid container spacing={4}>
             {data.filter(item => {
-                if(props.filteredTerm === ''){
+                if(filterTerm === ''){
                     return item;
                 }
-                else if(item.name.toLowerCase().includes(props.filteredTerm.toLowerCase()) 
-                        || item.artist.toLowerCase().includes(props.filteredTerm.toLowerCase())
-                        || item.instrument.toLowerCase().includes(props.filteredTerm.toLowerCase())
-                        || item.genre.toLowerCase().includes(props.filteredTerm.toLowerCase())
+                else if(item.name.toLowerCase().includes(filterTerm.toLowerCase()) 
+                        || item.artist.toLowerCase().includes(filterTerm.toLowerCase())
+                        || item.instrument.toLowerCase().includes(filterTerm.toLowerCase())
+                        || item.genre.toLowerCase().includes(filterTerm.toLowerCase())
                         ){
                     return item;
                 }
-            }).map((i:IGridItemData, index: any) => 
+            }).map((i:ISongDetails, index: any) => 
                 <GridItem
                 key={index}
+                id={i.id}
                 name={i.name}
                 artist={i.artist}
                 parts={i.parts}
@@ -61,11 +65,15 @@ export default function ListGridItems(props: any) {
                 duration={i.duration}
                 genre={i.genre}
                 instrument={i.instrument}
-                price={i.price} />
+                price={i.price} 
+                songKey={i.songKey}
+                difficulty={i.difficulty}
+                description={i.description}
+                />
                 )
             }
             </Grid>
         </main>  
-        </Grid>
+    </Grid>
     )
 }

@@ -1,0 +1,13 @@
+.overflowXauto {
+    overflow-x: auto;
+}
+
+.linkCustomStyle {
+    padding: 1;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.colorBlack{
+    color: black;
+}

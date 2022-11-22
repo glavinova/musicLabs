@@ -9,17 +9,18 @@ import GoogleIcon from '@mui/icons-material/Google';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import styles from './NavigationStyles.module.css';
 
 export default function Footer() {
   return (
     <Box component="footer" sx={{ bgcolor: 'background.paper', py: 6}}>
       <Container maxWidth="lg">
         <Typography variant="h6" align="center" gutterBottom>
-            <BottomNavigationAction sx={{color: 'black'}} icon={<FacebookIcon />} />
-            <BottomNavigationAction sx={{color: 'black'}} icon={<GoogleIcon />} />
-            <BottomNavigationAction sx={{color: 'black'}} icon={<InstagramIcon />} />
-            <BottomNavigationAction sx={{color: 'black'}} icon={<LinkedInIcon />} />
-            <BottomNavigationAction sx={{color: 'black'}} icon={<GitHubIcon />} />
+            <BottomNavigationAction className={styles.colorBlack} icon={<FacebookIcon />} />
+            <BottomNavigationAction className={styles.colorBlack} icon={<GoogleIcon />} />
+            <BottomNavigationAction className={styles.colorBlack} icon={<InstagramIcon />} />
+            <BottomNavigationAction className={styles.colorBlack} icon={<LinkedInIcon />} />
+            <BottomNavigationAction className={styles.colorBlack} icon={<GitHubIcon />} />
         </Typography>
         <Typography
           variant="subtitle1"

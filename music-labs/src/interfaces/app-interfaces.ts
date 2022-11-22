@@ -1,4 +1,5 @@
-export interface IGridItemData {
+export interface ISongDetails {
+    id: number;
     name: string;
     artist: string;
     parts: number;
@@ -7,6 +8,9 @@ export interface IGridItemData {
     genre: GenreEnum;
     instrument: string;
     price: number;
+    songKey: string;
+    difficulty: DificulltyLevelEnum;
+    description: string;
 }
 export enum GenreEnum {
     Classical = 'Classical',
@@ -15,6 +19,12 @@ export enum GenreEnum {
     Jazz = 'Jazz',
     Country = 'Country',
     Electronic = 'Electronic'
+} 
+
+export enum DificulltyLevelEnum {
+  Beginner = 'Beginner',
+  Intermediate = 'Intermediate',
+  Professional = 'Professional',
 } 
 
 export interface IMainFeaturedPostProps {

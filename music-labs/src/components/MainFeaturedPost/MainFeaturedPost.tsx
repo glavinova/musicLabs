@@ -3,33 +3,16 @@ import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import { IMainFeaturedPostProps } from '../interfaces/app-interfaces';
+import { IMainFeaturedPostProps } from '../../interfaces/app-interfaces';
+import styles from './MainFeaturedPost.module.css';
 
 export default function MainFeaturedPost(props: IMainFeaturedPostProps) {
   return (
     <Paper
-      sx={{
-        position: 'relative',
-        backgroundColor: 'grey.800',
-        color: '#fff',
-        mb: 4,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        backgroundImage: `url(${props.post.image})`,
-      }}
-    >
-      {<img style={{ display: 'none' }} src={props.post.image} alt={props.post.imageText} />}
-      <Box
-        sx={{
-          position: 'absolute',
-          top: 0,
-          bottom: 0,
-          right: 0,
-          left: 0,
-          backgroundColor: 'rgba(0,0,0,.3)',
-        }}
-      />
+      sx={{ backgroundImage: `url(${props.post.image})` }}
+      className={styles.paperCustomStyle} >
+      {<img className={styles.displayNone} src={props.post.image} alt={props.post.imageText} />}
+      <Box className={styles.boxCustomStyle} />
       <Grid container>
         <Grid item md={6}>
           <Box

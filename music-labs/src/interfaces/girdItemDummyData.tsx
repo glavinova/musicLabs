@@ -1,7 +1,8 @@
-import {IGridItemData, GenreEnum } from "./app-interfaces";
+import appConstants from "../constants/app-constants";
+import {ISongDetails, GenreEnum, DificulltyLevelEnum } from "./app-interfaces";
 
-export const GridItemData: IGridItemData[] = [
-{
+export const GridItemData: ISongDetails[] = [
+{   "id": 1,
     "name": "Allegro in A Major",
     "artist": "W.F.Bach",
     "parts": 1,
@@ -9,9 +10,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "02:36",
     "genre": GenreEnum.Classical,
     "instrument": "piano",
-    "price": 17.99
+    "price": 17.99,
+    "songKey": "D Major",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 2,
     "name": "Aria in D Minor",
     "artist": "A.Scarlatti",
     "parts": 2,
@@ -19,9 +24,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "01:36",
     "genre": GenreEnum.Classical,
     "instrument": "piano",
-    "price": 20.99
+    "price": 20.99,
+    "songKey": "B Minor",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 3,
     "name": "Sonata",
     "artist": "L.V.Beethoven",
     "parts": 2,
@@ -29,9 +38,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "05:26",
     "genre": GenreEnum.Classical,
     "instrument": "piano",
-    "price": 14.99
+    "price": 14.99,
+    "songKey": "A Major",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 4,
     "name": "Nuvole Bianche",
     "artist": "L.Einaudi",
     "parts": 1,
@@ -39,9 +52,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "02:46",
     "genre": GenreEnum.Classical,
     "instrument": "piano",
-    "price": 13.99
+    "price": 13.99,
+    "songKey": "G Major",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 5,
     "name": "Hallelujah",
     "artist": "L.Cohen",
     "parts": 1,
@@ -49,9 +66,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "02:46",
     "genre": GenreEnum.Rock,
     "instrument": "piano/guitar",
-    "price": 35.99
+    "price": 35.99,
+    "songKey": "D Minor",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 6,
     "name": "Your Song",
     "artist": "E.John",
     "parts": 1,
@@ -59,9 +80,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "05:46",
     "genre": GenreEnum.Rock,
     "instrument": "piano/guitar",
-    "price": 14.99
+    "price": 14.99,
+    "songKey": "D Major",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 7,
     "name": "Valerie",
     "artist": "A.Winehouse",
     "parts": 1,
@@ -69,9 +94,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "03:45",
     "genre": GenreEnum.Rock,
     "instrument": "piano/guitar",
-    "price": 16.99
+    "price": 16.99,
+    "songKey": "G Minor",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 8,
     "name": "The winner takes it all",
     "artist": "ABBA",
     "parts": 3,
@@ -79,9 +108,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "04:46",
     "genre": GenreEnum.Rock,
     "instrument": "piano/guitar",
-    "price": 14.99
+    "price": 14.99,
+    "songKey": "D Major / G Major",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 9,
     "name": "Don't stop me now",
     "artist": "Queen",
     "parts": 2,
@@ -89,9 +122,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "05:14",
     "genre": GenreEnum.Rock,
     "instrument": "guitar",
-    "price": 25.99
+    "price": 25.99,
+    "songKey": "A Major / D Major",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 10,
     "name": "Someone like you",
     "artist": "Adele",
     "parts": 1,
@@ -99,9 +136,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "03:11",
     "genre": GenreEnum.Popular,
     "instrument": "piano",
-    "price": 17.99
+    "price": 17.99,
+    "songKey": "C Major",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 11,
     "name": "Easy on me",
     "artist": "Adele",
     "parts": 1,
@@ -109,9 +150,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "03:34",
     "genre": GenreEnum.Popular,
     "instrument": "piano/guitar",
-    "price": 14.99
+    "price": 14.99,
+    "songKey": "C Minor",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 12,
     "name": "Perfect",
     "artist": "Ed Sheeran",
     "parts": 1,
@@ -119,9 +164,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "02:46",
     "genre": GenreEnum.Popular,
     "instrument": "piano",
-    "price": 14.99
+    "price": 14.99,
+    "songKey": "D Major",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 13,
     "name": "Country roads",
     "artist": "J.Denver",
     "parts": 1,
@@ -129,9 +178,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "04:46",
     "genre": GenreEnum.Country,
     "instrument": "guitar",
-    "price": 16.99
+    "price": 16.99,
+    "songKey": "F Major",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 14,
     "name": "Jolene",
     "artist": "D.Parton",
     "parts": 2,
@@ -139,9 +192,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "02:46",
     "genre": GenreEnum.Country,
     "instrument": "piano",
-    "price": 11.99
+    "price": 11.99,
+    "songKey": "F Minor / D Minor",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 15,
     "name": "That's all right",
     "artist": "E.Presley",
     "parts": 1,
@@ -149,9 +206,13 @@ export const GridItemData: IGridItemData[] = [
     "duration": "02:51",
     "genre": GenreEnum.Country,
     "instrument": "piano",
-    "price": 16.99
+    "price": 16.99,
+    "songKey": "D Major",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 {
+    "id": 16,
     "name": "Remember When",
     "artist": "A.Jackson",
     "parts": 1,
@@ -159,7 +220,10 @@ export const GridItemData: IGridItemData[] = [
     "duration": "02:46",
     "genre": GenreEnum.Country,
     "instrument": "piano/guitar",
-    "price": 18.99
+    "price": 18.99,
+    "songKey": "D Major",
+    "difficulty": DificulltyLevelEnum.Intermediate,
+    "description": appConstants.loremIpsumDescription
 },
 ]
 
