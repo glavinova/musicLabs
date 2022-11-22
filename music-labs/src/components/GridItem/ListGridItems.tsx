@@ -40,7 +40,7 @@ export default function ListGridItems() {
             </Select>
             </FormControl>
         </Container>      
-        <main>
+        <main style={{width: "100%"}}>
             <Grid container spacing={4}>
             {data.filter(item => {
                 if(filterTerm === ''){

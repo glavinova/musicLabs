@@ -31,7 +31,7 @@ export default function GridItem(props: ISongDetails) {
             <Typography variant="subtitle1" color="primary">
              <Link 
               to="/details" 
-              state={{songDetails: props}} 
+              state={props}
               style={{textDecoration: "none", color: "#1976d2", cursor: "pointer"}}>
                  More information... 
              </Link> 

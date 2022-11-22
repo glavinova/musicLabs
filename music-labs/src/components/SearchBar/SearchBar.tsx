@@ -57,7 +57,7 @@ export default function SearchBar() {
   return (
     <React.Fragment>
       <Toolbar sx={{ borderBottom: 1, borderColor: 'divider' }}>
-      <img src="./images/logo.png" alt="Logo" style={{width: "300px", height: "70px", margin: "10px 0"}} />
+      <img src="./images/logo.png" alt="Logo" style={{width: "300px", height: "50px", margin: "10px 0"}} />
         <Search>
             <SearchIconWrapper>
               <SearchIcon />

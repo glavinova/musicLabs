@@ -7,11 +7,13 @@ import SongDetails from './components/SongDetails/SongDetails';
 import { Routes, Route } from "react-router-dom";
 import { AppContextProvider } from './store/app-context';
 import HomePage from './components/Home Page/HomePage';
+import ErrorBoundary from './store/errorBoundary';
 
 const theme = createTheme();
 
 function App() {
   return (
+    <ErrorBoundary> 
     <AppContextProvider>
       <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -24,6 +26,7 @@ function App() {
       <Footer/>
     </ThemeProvider>
   </AppContextProvider>
+  </ErrorBoundary>
   );
 }
 
