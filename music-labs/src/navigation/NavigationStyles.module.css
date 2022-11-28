@@ -1,13 +1,21 @@
 .overflowXauto {
-    overflow-x: auto;
+  overflow-x: auto;
 }
 
 .linkCustomStyle {
-    padding: 1;
-    flex-shrink: 0;
-    margin-right: 20px;
+  padding: 1;
+  flex-shrink: 0;
+  margin-right: 20px;
 }
 
-.colorBlack{
-    color: black;
+.colorBlack {
+  color: black;
+}
+
+.userName {
+  padding: 1;
+  flex-shrink: 0;
+  color: #433D3C;
+  font-weight: bold;
+  font-style: italic;
 }

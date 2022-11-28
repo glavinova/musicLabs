@@ -1,17 +1,17 @@
-import * as React from 'react';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardActionArea from '@mui/material/CardActionArea';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import { ISongDetails } from '../../interfaces/app-interfaces';
-import appConstants from '../../constants/app-constants';
-import { Link } from 'react-router-dom';
-import styles from './GridItem.module.css';
+import * as React from "react";
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import appConstants from "../../constants/app-constants";
+import { ISongDetails } from "../../interfaces/app-interfaces";
+import { Link } from "react-router-dom";
+import styles from "./GridItem.module.css";
 
 export default function GridItem(props: ISongDetails) {
-  const partText = props.parts === 1? 'part' : 'parts';
+  const partText = props.parts === 1 ? "part" : "parts";
 
   return (
     <Grid item xs={12} md={6} className={styles.paddingBottom5}>
@@ -26,22 +26,22 @@ export default function GridItem(props: ISongDetails) {
             </Typography>
             <Typography variant="subtitle1" paragraph>
               {props.instrument} • {props.genre}
-              <br/>
-              ${props.price}
+              <br />${props.price}
             </Typography>
             <Typography variant="subtitle1" color="primary">
-             <Link 
-              to="/details" 
-              state={props}
-              className={styles.linkCustomStyle}>
-                 More information... 
-             </Link> 
+              <Link
+                to="/details"
+                state={props}
+                className={styles.linkCustomStyle}
+              >
+                More information...
+              </Link>
             </Typography>
           </CardContent>
           <CardMedia
             component="img"
             className={styles.cardMediaCustomStyle}
-            sx={{ display: { xs: 'none', sm: 'block' } }}
+            sx={{ display: { xs: "none", sm: "block" } }}
             image={appConstants.gridItemImageSrc}
             alt="songSheets"
           />
