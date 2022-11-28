@@ -22,21 +22,25 @@ export const loginFailed = (error: any) => {
 };
 
 export const logout = () => {
-  localStorage.removeItem('token');
+  localStorage.removeItem("token");
   return {
     type: actionTypes.LOGOUT,
   };
 };
 
-export const auth = (email: any, password: any) => {
+export const auth = (email: string, password: string, isSignUp: boolean) => {
   return (dispatch: any) => {
     dispatch(login());
     const loginData = {
       email: email,
       password: password,
     };
+    let url = "https://reqres.in/api/register";
+    if (!isSignUp) {
+      url = "https://reqres.in/api/login";
+    }
     axios
-      .post("https://reqres.in/api/login", loginData)
+      .post(url, loginData)
       .then((response: any) => {
         localStorage.setItem("token", response.data.token);
         dispatch(loginSuccess(response.data.token));
@@ -47,20 +51,11 @@ export const auth = (email: any, password: any) => {
   };
 };
 
-export const authLogout = () => {
-  return (dispatch: any) => {
-    const token = localStorage.getItem("token");
-    if(token){
-      dispatch(logout());
-    }
-  };
-};
-
 export const authCheckState = () => {
   return (dispatch: any) => {
     const token = localStorage.getItem("token");
     if (!token) {
-      //dispatch(logout());
+      dispatch(logout());
     } else {
       dispatch(loginSuccess(token));
     }

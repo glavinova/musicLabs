@@ -33,7 +33,7 @@ const loginFailed = (state: any, action: any) => {
 };
 
 const authLogout = (state: any, action: any) => {
-  updateObject(state, { token: null, loading: false });
+  return updateObject(state, { token: null, loading: false });
 };
 
 const reducer = (state = initialState, action: any) => {
@@ -46,8 +46,8 @@ const reducer = (state = initialState, action: any) => {
       return loginFailed(state, action);
     case actionTypes.LOGOUT:
       return authLogout(state, action);
-      default:
-        return state;
+    default:
+      return state;
   }
 };
 

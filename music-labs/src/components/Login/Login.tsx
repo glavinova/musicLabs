@@ -8,7 +8,7 @@ import {
   Typography,
   CircularProgress,
 } from "@mui/material";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AppContext from "../../context/app-context";
 import useValidation from "../../hooks/use-validation";
@@ -50,7 +50,7 @@ function Login(props: any) {
     emailBlurHandler();
 
     event.preventDefault();
-    props.onAuth(event.target[1].value, event.target[3].value);
+    props.onAuth(event.target[1].value, event.target[3].value, false);
 
     if (formIsValid) {
       navigate("/");
@@ -148,7 +148,12 @@ function Login(props: any) {
               <Typography>
                 {" "}
                 Need an account ? <br />{" "}
-                <Link to="/register" id="register" style={{ color: "#BD4B4B" }} onClick={props.onClose}>
+                <Link
+                  to="/register"
+                  id="register"
+                  style={{ color: "#BD4B4B" }}
+                  onClick={props.onClose}
+                >
                   Sing Up
                 </Link>{" "}
                 now!
@@ -171,8 +176,8 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    onAuth: (email: any, password: any) =>
-      dispatch(actions.auth(email, password)),
+    onAuth: (email: string, password: string, isSignUp: boolean) =>
+      dispatch(actions.auth(email, password, isSignUp)),
   };
 };
 

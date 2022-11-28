@@ -1,35 +1,36 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Toolbar from "@mui/material/Toolbar";
 import { Avatar, Button, Container, Link, Typography } from "@mui/material";
 import appConstants from "../constants/app-constants";
 import styles from "./NavigationStyles.module.css";
 import Login from "../components/Login/Login";
 import { connect } from "react-redux";
-import AppContext from "../context/app-context";
-import * as actions from '../store/actions/index';
+import * as actions from "../store/actions/index";
 import { useNavigate } from "react-router-dom";
+import AppContext from "../context/app-context";
 
 function NavMenu(props: any) {
   const appCtx = useContext(AppContext);
   let navigate = useNavigate();
-  // const loginHandler = (event: any) => {
-  //   event.preventDefault();
-  //   appCtx.setShowLoginModal(true);
-  // }
   const [showModal, setShowModal] = useState(false);
   const showModalHandler = (e: any) => {
     e.preventDefault();
     setShowModal(true);
-  }
+  };
   const closeModalHandler = () => {
     setShowModal(false);
-  }
+  };
 
   const logoutHandler = (event: any) => {
     event.preventDefault();
     props.onLogout();
+    setShowModal(false);
     navigate("/");
-  }
+  };
+
+  useEffect(() => {
+    appCtx.setCurrentUrl("/");
+  }, [logoutHandler]);
 
   return (
     <React.Fragment>
@@ -37,7 +38,11 @@ function NavMenu(props: any) {
         component="nav"
         variant="dense"
         className={styles.overflowXauto}
-        sx={{ display: "inline-block", marginTop: "15px" }}
+        sx={{
+          display: "inline-block",
+          marginTop: "15px",
+          marginBottom: props.isAuthenticated ? "25px" : "",
+        }}
       >
         {appConstants.sections.map((section) => (
           <Link
@@ -95,7 +100,10 @@ function NavMenu(props: any) {
               src="https://reqres.in/img/faces/2-image.jpg"
               sx={{ width: 56, height: 56, display: "inline-block" }}
             />
-            <Button onClick={logoutHandler}>Logout</Button>
+            <br />
+            <Button onClick={logoutHandler} className={styles.logoutBtn}>
+              Logout
+            </Button>
           </>
         )}
       </Toolbar>
@@ -111,8 +119,7 @@ const mapStateToProps = (state: any) => {
 
 const mapDispatchToProps = (dispatch: any) => {
   return {
-    onLogout: () =>
-      dispatch(actions.authLogout())
+    onLogout: () => dispatch(actions.logout()),
   };
 };
 

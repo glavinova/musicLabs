@@ -10,9 +10,9 @@ import { AppContextProvider } from "./context/app-context";
 import { BrowserRouter as Router } from "react-router-dom";
 import { createRoot } from "react-dom/client";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware, compose, combineReducers } from "redux";
-import thunk from "redux-thunk";
+import { combineReducers } from "redux";
 import authReducer from "./store/reducers/auth";
+import { configureStore } from "@reduxjs/toolkit";
 
 const theme = createTheme({
   palette: {
@@ -31,21 +31,12 @@ const theme = createTheme({
 
 const container = document.getElementById("root");
 const root = createRoot(container!);
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-  }
-}
-const composeEnhancers =
-  (window["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"] as typeof compose) || compose;
+
 const rootReducer = combineReducers({
   auth: authReducer,
 });
 
-const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(thunk))
-);
+const store = configureStore({ reducer: rootReducer });
 
 root.render(
   <React.StrictMode>

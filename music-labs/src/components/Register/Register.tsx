@@ -1,139 +1,193 @@
-import { Grid, Paper, FormControl, TextField, Button } from "@mui/material";
+import {
+  Grid,
+  Paper,
+  TextField,
+  Button,
+  Tooltip,
+  CircularProgress,
+} from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AppContext from "../../context/app-context";
 import useValidation from "../../hooks/use-validation";
 import validateEmail from "../../validators/validateEmail";
 import validatePassword from "../../validators/validatePassword";
+import * as actions from "../../store/actions/index";
 import styles from "./Register.module.css";
+import { connect } from "react-redux";
 
-function Register() {
-  const [invalidCredentials, setInvalidCredentials] = useState(false);
+function Register(props: any) {
   const appCtx = useContext(AppContext);
   useEffect(() => {
     appCtx.setCurrentUrl("/register");
   }, []);
-
-  //   const [isModalOpen, setIsModalOpen] = useState(false);
-  //   setIsModalOpen(props.show);
-  //   const modalRef = useRef(null);
-  //   useEffect(() => {
-  //     const closeModal = (e: any) => {
-  //         if(e.path[0] !== 'MODAL')
-  //         setIsModalOpen(false);
-  //     }
-  //     document.body.addEventListener('click', closeModal);
-  //     return () => document.body.removeEventListener('click', closeModal);
-  //   }, [isModalOpen])
-
   const navigate = useNavigate();
-
-  const {
-    value: passwordValue,
-    isValid: passwordIsValid,
-    hasError: passwordInputHasError,
-    valueChangeHandler: passwordChangedHandler,
-    inputBlurHandler: passwordBlurHandler,
-  } = useValidation(validatePassword);
 
   const {
     value: emailValue,
     isValid: emailIsValid,
     hasError: emailInputHasError,
+    isEmpty: emailIsEmpty,
     valueChangeHandler: emailChangedHandler,
     inputBlurHandler: emailBlurHandler,
+    reset: emailReset,
   } = useValidation(validateEmail);
 
+  const {
+    value: passwordValue,
+    isValid: passwordIsValid,
+    hasError: passwordInputHasError,
+    isEmpty: passwordIsEmpty,
+    valueChangeHandler: passwordChangedHandler,
+    inputBlurHandler: passwordBlurHandler,
+    reset: passwordReset,
+  } = useValidation(validatePassword);
+
+  const {
+    value: confirmPasswordValue,
+    isValid: confirmPasswordIsValid,
+    hasError: confirmPasswordInputHasError,
+    isEmpty: confirmPasswordIsEmpty,
+    valueChangeHandler: confirmPasswordChangedHandler,
+    inputBlurHandler: confirmPasswordBlurHandler,
+    reset: confirmPasswordReset,
+  } = useValidation((value) => {
+    return value === passwordValue && validatePassword(value);
+  });
+
   let formIsValid = false;
-  emailIsValid && passwordIsValid && (formIsValid = true);
+  emailIsValid &&
+    passwordIsValid &&
+    confirmPasswordIsValid &&
+    (formIsValid = true);
 
   function submitHandler(event: any) {
     passwordBlurHandler();
     emailBlurHandler();
 
     event.preventDefault();
+    props.onAuth(event.target[0].value, event.target[2].value, true);
 
     if (formIsValid) {
-      //open some alert box to say Register is successful or not
+      emailReset();
+      passwordReset();
+      confirmPasswordReset();
       navigate("/");
     }
   }
 
   return (
     <React.Fragment>
-      <form aria-label="form" onSubmit={submitHandler}>
-        <Grid
-          container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justifyContent="center"
-          style={{ minHeight: "70vh" }}
-        >
-          <Paper className={styles.form}>
-            <h3>Register</h3>
-            <Grid item xs={12} className={styles.textField}>
-              <FormControl fullWidth>
-                <TextField
-                  id="email"
-                  type="text"
-                  variant="outlined"
-                  placeholder="Email"
-                  autoComplete="Email"
-                  error={
-                    emailInputHasError ||
-                    invalidCredentials ||
-                    passwordInputHasError
-                  }
-                  helperText={emailInputHasError ? "" : ""}
-                  onChange={emailChangedHandler}
-                  value={emailValue}
-                  inputProps={{ maxLength: 50 }}
-                />
-              </FormControl>
+      <Paper className={styles.paper}>
+        <h3 id="header"> Register </h3>
+        <form aria-label="form" id="form" onSubmit={submitHandler}>
+          <Grid container spacing={2} item zeroMinWidth className={styles.form}>
+            <Grid item xs={12}>
+              <label htmlFor="email"> Email * </label>
+              <TextField
+                variant="outlined"
+                id="email"
+                name="email"
+                autoComplete="email"
+                error={emailInputHasError}
+                helperText={
+                  emailIsEmpty
+                    ? "Email is required"
+                    : emailInputHasError
+                    ? "Invalid email format"
+                    : ""
+                }
+                onChange={emailChangedHandler}
+                onBlur={emailBlurHandler}
+                value={emailValue}
+                inputProps={{ maxLength: 50 }}
+              />
             </Grid>
-            <Grid item xs={12} className={styles.textField}>
-              <FormControl fullWidth>
+            <Grid item xs={12}>
+              <label htmlFor="password"> Password * </label>
+              <Tooltip
+                title="At least 8 but maximum 40 characters, must contain big letter and special character (!@#$%^&*)"
+                arrow
+              >
                 <TextField
-                  id="password"
-                  type="password"
-                  autoComplete="current-password"
                   variant="outlined"
-                  placeholder="Password"
-                  error={
-                    passwordInputHasError ||
-                    invalidCredentials ||
-                    emailInputHasError
-                  }
+                  name="password"
+                  type="password"
+                  id="password"
+                  autoComplete="password"
+                  error={passwordInputHasError}
                   helperText={
-                    passwordInputHasError ||
-                    invalidCredentials ||
-                    emailInputHasError
-                      ? "Invalid credentials"
+                    passwordIsEmpty
+                      ? "Password is required"
+                      : passwordInputHasError
+                      ? "Invalid password format"
                       : ""
                   }
                   onChange={passwordChangedHandler}
+                  onBlur={passwordBlurHandler}
                   value={passwordValue}
                   inputProps={{ maxLength: 40 }}
                 />
-              </FormControl>
+              </Tooltip>
             </Grid>
-            <Grid item>
+            <Grid item xs={12}>
+              <label htmlFor="confirmPassword"> Confirm Password * </label>
+              <TextField
+                variant="outlined"
+                name="confirmPassword"
+                type="password"
+                id="confirmPassword"
+                autoComplete="confirm-password"
+                error={confirmPasswordInputHasError}
+                helperText={
+                  confirmPasswordIsEmpty
+                    ? "Confirm password is required"
+                    : confirmPasswordValue !== passwordValue &&
+                      confirmPasswordInputHasError
+                    ? "Passwords did not match"
+                    : confirmPasswordInputHasError
+                    ? "Invalid confirm password format"
+                    : ""
+                }
+                onChange={confirmPasswordChangedHandler}
+                onBlur={confirmPasswordBlurHandler}
+                value={confirmPasswordValue}
+                inputProps={{ maxLength: 40 }}
+                sx={{ marginBottom: "20px" }}
+              />
+            </Grid>
+            <Grid item xs={12}>
               <Button
+                type="submit"
+                id="submitBtn"
+                fullWidth
                 variant="contained"
                 color="primary"
-                className={styles.loginBtn}
-                type="submit"
-                fullWidth
               >
-                Sign Up
+                Create Account
               </Button>
+              <CircularProgress sx={{ display: props.loading ? "" : "none" }} />
             </Grid>
-          </Paper>
-        </Grid>
-      </form>
+          </Grid>
+        </form>
+      </Paper>
     </React.Fragment>
   );
 }
 
-export default Register;
+const mapStateToProps = (state: any) => {
+  return {
+    loading: state.auth.loading,
+    error: state.auth.error,
+    isAuthenticated: state.auth.token !== null,
+  };
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+  return {
+    onAuth: (email: string, password: string, isSignUp: boolean) =>
+      dispatch(actions.auth(email, password, isSignUp)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
