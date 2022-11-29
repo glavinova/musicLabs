@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import axios from "axios";
+import fetchClient from "../../hooks/axios-interceptor";
 
 export const login = () => {
   return {
@@ -22,7 +22,11 @@ export const loginFailed = (error: any) => {
 };
 
 export const logout = () => {
-  localStorage.removeItem("token");
+  fetchClient()
+    .post("https://reqres.in/api/logout")
+    .then(() => {
+      localStorage.removeItem("token");
+    });
   return {
     type: actionTypes.LOGOUT,
   };
@@ -39,7 +43,7 @@ export const auth = (email: string, password: string, isSignUp: boolean) => {
     if (!isSignUp) {
       url = "https://reqres.in/api/login";
     }
-    axios
+    fetchClient()
       .post(url, loginData)
       .then((response: any) => {
         localStorage.setItem("token", response.data.token);
@@ -54,9 +58,7 @@ export const auth = (email: string, password: string, isSignUp: boolean) => {
 export const authCheckState = () => {
   return (dispatch: any) => {
     const token = localStorage.getItem("token");
-    if (!token) {
-      dispatch(logout());
-    } else {
+    if (token) {
       dispatch(loginSuccess(token));
     }
   };
