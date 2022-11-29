@@ -1,33 +1,69 @@
-import React from 'react';
-import Footer from './navigation/Footer';
-import CssBaseline from '@mui/material/CssBaseline';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import SongDetails from './components/SongDetails/SongDetails';
-import { Routes, Route } from "react-router-dom";
-import { AppContextProvider } from './store/app-context';
-import HomePage from './components/HomePage/HomePage';
-import ErrorBoundary from './store/errorBoundary';
+import React, { Component } from "react";
+import SongDetails from "./components/SongDetails/SongDetails";
+import HomePage from "./components/HomePage/HomePage";
+import Register from "./components/Register/Register";
+import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
+import ValidationEmail from "./components/ForgotPassword/ValidationEmail";
+import Header from "./navigation/Header";
+import { Container } from "@mui/system";
+import Footer from "./navigation/Footer";
+import * as actions from "./store/actions/index";
+import { connect } from "react-redux";
+import withRouter from "./components/WithRouter";
+import { Route, Routes } from "react-router-dom";
 
-const theme = createTheme();
+class App extends Component {
+  componentDidMount() {
+    this.props.onTryAutoSignUp();
+  }
 
-function App() {
-  return (
-    <ErrorBoundary> 
-    <AppContextProvider>
-      <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Container maxWidth="lg">
-        <Routes>
-        <Route path="/" element={<HomePage />} />
+  render() {
+    let routes = (
+      <Routes>
+        <Route path="/" exact element={<HomePage />} />
         <Route path="/details" element={<SongDetails />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route
+          path="/reset-password-email-sent"
+          element={<ValidationEmail />}
+        />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    );
+    if (this.props.isAuthenticated) {
+      routes = (
+        <Routes>
+          <Route path="/" exact element={<HomePage />} />
+          <Route path="/details" element={<SongDetails />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route
+            path="/reset-password-email-sent"
+            element={<ValidationEmail />}
+          />
         </Routes>
-      </Container>
-      <Footer/>
-    </ThemeProvider>
-  </AppContextProvider>
-  </ErrorBoundary>
-  );
+      );
+    }
+    return (
+      <React.Fragment>
+        <Container maxWidth="lg">
+          <Header />
+          {routes}
+          <Footer />
+        </Container>
+      </React.Fragment>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.auth.token !== null,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onTryAutoSignUp: () => dispatch(actions.authCheckState()),
+  };
+};
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));

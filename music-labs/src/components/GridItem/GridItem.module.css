@@ -1,22 +1,22 @@
 .paddingBottom5 {
-    padding-bottom: 5px;
+  padding-bottom: 5px;
 }
 
 .cardCustomStyle {
-    display: flex;
-    width: 100%;
+  display: flex;
+  width: 100%;
 }
 
 .flex1 {
- flex: 1;
+  flex: 1;
 }
 
 .linkCustomStyle {
-    text-decoration: none;
-    color: #1976d2;
-    cursor: pointer;
+  text-decoration: none;
+  color: #1976d2;
+  cursor: pointer;
 }
 
 .cardMediaCustomStyle {
-    width: 160px;
+  width: 160px;
 }

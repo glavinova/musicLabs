@@ -1,0 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.form {
+  padding: 40px;
+}
+
+h3 {
+  margin-bottom: 10px;
+}
+
+.textField {
+  margin-bottom: 10px !important;
+}
+
+.loginBtn {
+  padding-left: 12% !important;
+  padding-right: 12% !important;
+  margin-right: 9px !important;
+  margin-bottom: 10px !important;
+}
+
+.signupBtn {
+  margin-bottom: 10px !important;
+  text-decoration: none !important;
+}
+
+a {
+  margin-bottom: 10px !important;
+  color: black;
+}

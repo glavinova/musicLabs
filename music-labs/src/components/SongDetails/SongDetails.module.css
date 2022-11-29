@@ -1,46 +1,46 @@
 .imgCustomStyle {
-    width: 300px;
-    height: 70px;
-    margin: 10px 0;
+  width: 300px;
+  height: 70px;
+  margin: 10px 0;
 }
 
 .marginTop20 {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .marginBottom20 {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .cardCustomStyle {
-    display: flex;
-    height: 55vh;
+  display: flex;
+  height: 55vh;
 }
 
 .cardMediaCustomStyle {
-    width: 350px;
-    height: 400px;
-    object-fit: cover;
-    padding-left: 30px;
+  width: 350px;
+  height: 400px;
+  object-fit: cover;
+  padding-left: 30px;
 }
 
 .marginLeft10 {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 .marginTop75 {
-    margin-top: 75px;
+  margin-top: 75px;
 }
 
 .floatRight {
-    float: right;
+  float: right;
 }
 
 .fontSize15 {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .toolbarCustomStyle {
-    justify-content: space-between;
-    overflow-x: auto;
+  justify-content: space-between;
+  overflow-x: auto;
 }
