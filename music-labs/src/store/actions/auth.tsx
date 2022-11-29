@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import fetchClient from "../../hooks/axios-interceptor";
+import fetchClient from "../../interceptors/axios-interceptor";
 
 export const login = () => {
   return {
