@@ -32,6 +32,13 @@ const loginFailed = (state: any, action: any) => {
   });
 };
 
+const fetchUser = (state: any, action: any) => {
+  return updateObject(state, {
+    userData: action.userData,
+    loading: false,
+  });
+};
+
 const authLogout = (state: any, action: any) => {
   return updateObject(state, { token: null, loading: false });
 };
@@ -44,6 +51,8 @@ const reducer = (state = initialState, action: any) => {
       return loginSuccess(state, action);
     case actionTypes.LOGIN_FAILED:
       return loginFailed(state, action);
+    case actionTypes.FETCH_USER:
+      return fetchUser(state, action);
     case actionTypes.LOGOUT:
       return authLogout(state, action);
     default:
