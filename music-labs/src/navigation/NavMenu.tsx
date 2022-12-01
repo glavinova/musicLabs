@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Toolbar from "@mui/material/Toolbar";
-import { Avatar, Button, Container, Link, Typography } from "@mui/material";
+import { Avatar, Button, Link, Typography } from "@mui/material";
 import appConstants from "../constants/app-constants";
 import styles from "./NavigationStyles.module.css";
 import Login from "../components/Login/Login";
@@ -31,6 +31,8 @@ function NavMenu(props: any) {
   useEffect(() => {
     appCtx.setCurrentUrl("/");
   }, [logoutHandler]);
+
+  let userData = JSON.parse(localStorage.getItem("userData")!);
 
   return (
     <React.Fragment>
@@ -96,8 +98,8 @@ function NavMenu(props: any) {
             </Toolbar>
 
             <Avatar
-              alt="Eve Holt"
-              src="https://reqres.in/img/faces/2-image.jpg"
+              alt={userData.first_name + " " + userData.last_name}
+              src={userData.avatar}
               sx={{ width: 56, height: 56, display: "inline-block" }}
             />
             <br />

@@ -21,6 +21,18 @@ export const loginFailed = (error: any) => {
   };
 };
 
+export const fetchUser = () => {
+  fetchClient()
+    .get("https://reqres.in/api/users/4")
+    .then((res) => {
+      console.log(res.data.data);
+      localStorage.setItem("userData", JSON.stringify(res.data.data));
+    });
+  return {
+    type: actionTypes.FETCH_USER,
+  };
+};
+
 export const logout = () => {
   fetchClient()
     .post("https://reqres.in/api/logout")
@@ -48,6 +60,7 @@ export const auth = (email: string, password: string, isSignUp: boolean) => {
       .then((response: any) => {
         localStorage.setItem("token", response.data.token);
         dispatch(loginSuccess(response.data.token));
+        dispatch(fetchUser());
       })
       .catch((err) => {
         dispatch(loginFailed(err.response.data.error));
