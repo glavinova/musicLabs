@@ -1,5 +1,6 @@
 import * as actionTypes from "./actionTypes";
 import fetchClient from "../../interceptors/axios-interceptor";
+import axios from "axios";
 
 export const login = () => {
   return {
@@ -21,15 +22,10 @@ export const loginFailed = (error: any) => {
   };
 };
 
-export const fetchUser = () => {
-  fetchClient()
-    .get("https://reqres.in/api/users/4")
-    .then((res) => {
-      console.log(res.data.data);
-      localStorage.setItem("userData", JSON.stringify(res.data.data));
-    });
+export const fetchUser = (userData: any) => {
   return {
     type: actionTypes.FETCH_USER,
+    userData: userData,
   };
 };
 
@@ -55,16 +51,17 @@ export const auth = (email: string, password: string, isSignUp: boolean) => {
     if (!isSignUp) {
       url = "https://reqres.in/api/login";
     }
-    fetchClient()
-      .post(url, loginData)
-      .then((response: any) => {
-        localStorage.setItem("token", response.data.token);
-        dispatch(loginSuccess(response.data.token));
-        dispatch(fetchUser());
-      })
-      .catch((err) => {
-        dispatch(loginFailed(err.response.data.error));
-      });
+    axios.all([fetchClient().post(url, loginData),
+              fetchClient().get("https://reqres.in/api/users/4")])
+     .then(axios.spread((firstResponse: any, secondResponse: any) => {  
+      localStorage.setItem("token", firstResponse.data.token);
+      localStorage.setItem("userData", JSON.stringify(secondResponse.data.data));
+        dispatch(loginSuccess(firstResponse.data.token));
+        dispatch(fetchUser(JSON.stringify(secondResponse.data.data)));
+     }))
+     .catch((err: any) => {
+      dispatch(loginFailed(err.response.data.error));
+    });
   };
 };
 
