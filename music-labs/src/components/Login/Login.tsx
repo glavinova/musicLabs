@@ -23,7 +23,7 @@ function Login(props: any) {
 
   useEffect(() => {
     appCtx.setCurrentUrl("/login");
-  }, []);
+  });
 
   const navigate = useNavigate();
   const {

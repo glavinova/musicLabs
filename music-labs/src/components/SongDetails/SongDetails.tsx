@@ -21,11 +21,11 @@ import { connect } from "react-redux";
 
 function SongDetails(props: any) {
   const { state } = useLocation();
-  const [data, setData] = useState(state);
+  const [data] = useState(state);
   const appCtx = useContext(AppContext);
   useEffect(() => {
     appCtx.setCurrentUrl("/details");
-  }, []);
+  });
 
   return (
     <React.Fragment>

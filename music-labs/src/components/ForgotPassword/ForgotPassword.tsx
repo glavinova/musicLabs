@@ -13,7 +13,7 @@ const ForgotPassword = () => {
   const appCtx = useContext(AppContext);
   useEffect(() => {
     appCtx.setCurrentUrl("/forgot-password");
-  }, []);
+  });
 
   const {
     value: emailValue,

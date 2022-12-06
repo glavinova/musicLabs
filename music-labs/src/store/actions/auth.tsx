@@ -34,6 +34,7 @@ export const logout = () => {
     .post("https://reqres.in/api/logout")
     .then(() => {
       localStorage.removeItem("token");
+      localStorage.removeItem("userData");
     });
   return {
     type: actionTypes.LOGOUT,

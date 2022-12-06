@@ -31,7 +31,7 @@ const ValidationEmail = () => {
   const appCtx = useContext(AppContext);
   useEffect(() => {
     appCtx.setCurrentUrl("/reset-password-email-sent");
-  }, []);
+  });
 
   return (
     <React.Fragment>
