@@ -71,4 +71,23 @@ describe("<GridItem />", () => {
     expect(wrapper.contains(17.99)).toEqual(true);
     expect(wrapper.contains("More information...")).toEqual(true);
   });
+  it("check if the part/s text shows properly, depending on the number of parts", () => {
+    wrapper.setProps({
+      id: props.id,
+      name: props.name,
+      artist: props.artist,
+      parts: 5,
+      pages: props.pages,
+      duration: props.duration,
+      genre: props.genre,
+      instrument: props.instrument,
+      price: props.price,
+      songKey: props.songKey,
+      difficulty: props.difficulty,
+      description: props.description,
+    });
+
+    expect(wrapper.contains("part")).toEqual(false);
+    expect(wrapper.contains("parts")).toEqual(true);
+  });
 });

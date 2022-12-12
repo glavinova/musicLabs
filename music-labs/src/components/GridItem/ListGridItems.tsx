@@ -40,8 +40,10 @@ export default function ListGridItems() {
           <Select
             labelId="sort-label"
             id="sortLabel"
+            data-testid="sortLabel"
             value={selectedSortType}
             label="Sort"
+            role="listbox"
             onChange={sortItems}
           >
             <MenuItem value="a-z">Song Name (Ascending)</MenuItem>
