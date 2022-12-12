@@ -6,7 +6,7 @@ import {
   Tooltip,
   CircularProgress,
 } from "@mui/material";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AppContext from "../../context/app-context";
 import useValidation from "../../hooks/use-validation";
@@ -20,7 +20,7 @@ function Register(props: any) {
   const appCtx = useContext(AppContext);
   useEffect(() => {
     appCtx.setCurrentUrl("/register");
-  }, []);
+  });
   const navigate = useNavigate();
 
   const {

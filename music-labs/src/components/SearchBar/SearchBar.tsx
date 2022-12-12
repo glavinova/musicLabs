@@ -65,12 +65,16 @@ export default function SearchBar() {
           <SearchIconWrapper>
             <SearchIcon />
           </SearchIconWrapper>
-          <StyledInputBase
-            type="text"
-            placeholder="Search for Artist Name, Song Title, Genre or Instrument..."
-            inputProps={{ "aria-label": "search" }}
-            onChange={handleChange}
-          />
+          <div data-testid="search-bar">
+            <StyledInputBase
+              role="input"
+              id="searchBar"
+              type="text"
+              placeholder="Search for Artist Name, Song Title, Genre or Instrument..."
+              inputProps={{ "aria-label": "search" }}
+              onChange={handleChange}
+            />
+          </div>
         </Search>
       </Toolbar>
     </React.Fragment>

@@ -13,7 +13,7 @@ const ForgotPassword = () => {
   const appCtx = useContext(AppContext);
   useEffect(() => {
     appCtx.setCurrentUrl("/forgot-password");
-  }, []);
+  });
 
   const {
     value: emailValue,
@@ -43,13 +43,23 @@ const ForgotPassword = () => {
         className={styles.gridCustomStyle}
       >
         <Grid item xs={12}>
-          <h3 id="header">Forgot your password ?</h3>
+          <h3 id="header" data-testid="header">
+            Forgot your password ?
+          </h3>
         </Grid>
-        <Typography className={styles.paragraph} id="textFirstPart">
+        <Typography
+          className={styles.paragraph}
+          id="textFirstPart"
+          data-testid="textFirstPart"
+        >
           If you don't have an account, <Link to="/register"> click here</Link>{" "}
           to set up a new account (it's free).
         </Typography>
-        <Typography className={styles.lastparagraph} id="textSecondPart">
+        <Typography
+          className={styles.lastparagraph}
+          id="textSecondPart"
+          data-testid="textSecondPart"
+        >
           If you already have account, please enter your email below, so we can
           send you validation code by e-mail.
         </Typography>

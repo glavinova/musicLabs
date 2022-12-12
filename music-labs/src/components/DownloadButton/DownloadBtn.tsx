@@ -3,17 +3,19 @@ import React from "react";
 import DownloadIcon from "@mui/icons-material/Download";
 import styles from "./DownloadBtn.module.css";
 
-function DownloadButton() {
-  const onDownload = () => {
-    const link = document.createElement("a");
-    link.download = `sample_music_sheets.pdf`;
-    link.href = "./music_sheets_pdf/sample_music_sheets.pdf";
-    link.click();
-  };
+export const onDownload = () => {
+  const link = document.createElement("a");
+  link.download = `sample_music_sheets.pdf`;
+  link.href = "./music_sheets_pdf/sample_music_sheets.pdf";
+  link.click();
+};
 
+export default function DownloadButton() {
   return (
     <React.Fragment>
       <Button
+        id="downloadBtn"
+        data-testid="downloadBtn"
         onClick={onDownload}
         size="large"
         variant="contained"
@@ -26,5 +28,3 @@ function DownloadButton() {
     </React.Fragment>
   );
 }
-
-export default DownloadButton;

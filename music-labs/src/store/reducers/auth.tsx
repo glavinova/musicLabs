@@ -2,6 +2,7 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   token: null,
+  userData: null,
   error: null,
   loading: false,
 };
@@ -40,7 +41,7 @@ const fetchUser = (state: any, action: any) => {
 };
 
 const authLogout = (state: any, action: any) => {
-  return updateObject(state, { token: null, loading: false });
+  return updateObject(state, { token: null, userData: null, loading: false });
 };
 
 const reducer = (state = initialState, action: any) => {

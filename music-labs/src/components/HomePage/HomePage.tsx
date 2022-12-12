@@ -8,7 +8,7 @@ export default function HomePage() {
   const appCtx = useContext(AppContext);
   useEffect(() => {
     appCtx.setCurrentUrl("/");
-  }, []);
+  });
 
   return (
     <React.Fragment>
