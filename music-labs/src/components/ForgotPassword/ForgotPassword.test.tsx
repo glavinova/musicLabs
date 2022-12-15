@@ -13,23 +13,28 @@ describe("<ForgotPassword />", () => {
     );
   });
   it("should exist the header", () => {
-    const header = screen.queryByTestId("header");
+    const { queryByTestId } = wrapper;
+    const header = queryByTestId("header");
     expect(header).toBeTruthy();
   });
   it("should exist the first part of the text", () => {
-    const text = screen.queryByTestId("textFirstPart");
+    const { queryByTestId } = wrapper;
+    const text = queryByTestId("textFirstPart");
     expect(text).toBeTruthy();
   });
   it("should exist the second part of the text", () => {
-    const text = screen.queryByTestId("textSecondPart");
+    const { queryByTestId } = wrapper;
+    const text = queryByTestId("textSecondPart");
     expect(text).toBeTruthy();
   });
   it("should exist the email input", () => {
-    const getEmailField = screen.getByPlaceholderText(/email/i);
+    const { getByPlaceholderText } = wrapper;
+    const getEmailField = getByPlaceholderText(/email/i);
     expect(getEmailField).toBeTruthy();
   });
   it("should exist the proceed button", () => {
-    const getProceedBtn = screen.getByRole("button", {
+    const { getByRole } = wrapper;
+    const getProceedBtn = getByRole("button", {
       name: /Proceed/i,
     });
     expect(getProceedBtn).toBeTruthy();
@@ -46,7 +51,8 @@ describe("<ForgotPassword /> form behavior", () => {
     );
   });
   it("should provide valid input and submit successfully", async () => {
-    const getEmailField = screen.getByPlaceholderText(/Email/i);
+    const { getByPlaceholderText, getByRole, queryByText } = wrapper;
+    const getEmailField = getByPlaceholderText(/Email/i);
 
     await act(async () => {
       fireEvent.change(getEmailField, {
@@ -54,7 +60,7 @@ describe("<ForgotPassword /> form behavior", () => {
       });
     });
 
-    const getProceedBtn = screen.getByRole("button", {
+    const getProceedBtn = getByRole("button", {
       name: /Proceed/i,
     });
 
@@ -62,11 +68,13 @@ describe("<ForgotPassword /> form behavior", () => {
       fireEvent.click(getProceedBtn);
     });
 
-    const getError = screen.queryByText("Invalid email address");
+    const getError = queryByText("Invalid email address");
     expect(getError).toBeFalsy();
   });
+
   it("should provide invalid input and show error message", async () => {
-    const getEmailField = screen.getByPlaceholderText(/Email/i);
+    const { getByPlaceholderText, getByRole, queryByText } = wrapper;
+    const getEmailField = getByPlaceholderText(/Email/i);
 
     await act(async () => {
       fireEvent.change(getEmailField, {
@@ -74,7 +82,7 @@ describe("<ForgotPassword /> form behavior", () => {
       });
     });
 
-    const getProceedBtn = screen.getByRole("button", {
+    const getProceedBtn = getByRole("button", {
       name: /Proceed/i,
     });
 
@@ -82,7 +90,7 @@ describe("<ForgotPassword /> form behavior", () => {
       fireEvent.click(getProceedBtn);
     });
 
-    const getError = screen.queryByText("Invalid email address");
+    const getError = queryByText("Invalid email address");
     expect(getError).toBeTruthy();
   });
 });

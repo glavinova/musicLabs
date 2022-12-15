@@ -9,12 +9,12 @@ describe("<ErrorBoundary />", () => {
       throw new Error("Test");
     };
 
-    render(
+    const { getByTestId } = render(
       <ErrorBoundary FallbackComponent={ErrorFallback} onError={myErrorHandler}>
         <ThrowError />
       </ErrorBoundary>
     );
 
-    expect(screen.getByTestId("errorboundary")).toBeVisible();
+    expect(getByTestId("errorboundary")).toBeVisible();
   });
 });

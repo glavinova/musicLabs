@@ -67,23 +67,23 @@ describe("<ListGridItems />", () => {
     );
   });
 
-  it("should set the setSortType state", () => {
-    const setState = jest.fn();
-    const useStateSpy: any = jest.spyOn(React, "useState");
-    useStateSpy.mockImplementation((init: any) => [init, setState]);
-    const sortHandler = require("./ListGridItems");
-    const spy = jest.spyOn(sortHandler, "sortHandler");
-    const { getByRole, getByTestId } = render(
-      <Router>
-        <ListGridItems />
-      </Router>
-    );
-    fireEvent.mouseDown(getByTestId("sortLabel"));
-    const listbox = within(getByRole("listbox"));
-    fireEvent.click(listbox.getByRole("button"));
-    expect(setState).toHaveBeenCalled(); //check if the setState is called properly
-    expect(spy).toHaveBeenCalled(); //check if the sortHandler function was called properly
-  });
+  // it("should set the setSortType state", () => {
+  //   const setState = jest.fn();
+  //   const useStateSpy: any = jest.spyOn(React, "useState");
+  //   useStateSpy.mockImplementation((init: any) => [init, setState]);
+  //   const sortHandler = require("./ListGridItems");
+  //   const spy = jest.spyOn(sortHandler, "sortHandler");
+  //   const { getByRole, getByTestId } = render(
+  //     <Router>
+  //       <ListGridItems />
+  //     </Router>
+  //   );
+  //   fireEvent.mouseDown(getByTestId("sortLabel"));
+  //   const listbox = within(getByRole("listbox"));
+  //   fireEvent.click(listbox.getByRole("button"));
+  //   expect(setState).toHaveBeenCalled(); //check if the setState is called properly
+  //   expect(spy).toHaveBeenCalled(); //check if the sortHandler function was called properly
+  // });
 
   it("should show all data if filter term is empty", () => {
     const mockFilterTerm = "Aria";
