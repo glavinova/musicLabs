@@ -1,11 +1,9 @@
 import React from "react";
-import { configure, shallow, mount } from "enzyme";
-import { MemoryRouter } from "react-router";
+import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import { Route } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import App from "./App";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureMockStore from "redux-mock-store";
