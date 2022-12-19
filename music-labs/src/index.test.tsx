@@ -6,10 +6,13 @@ jest.mock("react-dom/client", () => ({
   })),
 }));
 
-test("renders with App and root div", () => {
-  const root = document.createElement("div");
-  root.id = "root";
-  document.body.appendChild(root);
-  require("./index.tsx");
-  //expect(ReactDOM.render).toHaveBeenCalled();
-});
+describe("index.tsx unit test", () =>{
+  it("renders with App and root div", () => {
+    const root = document.createElement("div");
+    root.id = "root";
+    document.body.appendChild(root);
+    require("./index.tsx");
+    //expect(ReactDOM.render).toHaveBeenCalled();
+  });
+})
+
