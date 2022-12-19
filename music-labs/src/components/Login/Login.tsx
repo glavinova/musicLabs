@@ -50,7 +50,7 @@ function Login(props: any) {
     emailBlurHandler();
 
     event.preventDefault();
-    props.onAuth(event.target[1].value, event.target[3].value, false);
+    props.onAuth(emailValue, passwordValue, false);
 
     if (formIsValid) {
       navigate("/");
@@ -81,7 +81,7 @@ function Login(props: any) {
               >
                 X
               </Button>
-              <h3>Login</h3>
+              <h3 data-testid="loginHeader">Login</h3>
               <Grid item xs={12} className={styles.textField}>
                 <FormControl fullWidth>
                   <TextField
@@ -137,6 +137,7 @@ function Login(props: any) {
                   color="primary"
                   className={styles.loginBtn}
                   type="submit"
+                  role="button"
                   fullWidth
                 >
                   Login

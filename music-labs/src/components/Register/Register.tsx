@@ -66,7 +66,7 @@ function Register(props: any) {
     emailBlurHandler();
 
     event.preventDefault();
-    props.onAuth(event.target[0].value, event.target[2].value, true);
+    props.onAuth(emailValue, passwordValue, true);
 
     if (formIsValid) {
       emailReset();

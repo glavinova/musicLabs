@@ -72,12 +72,18 @@ function NavMenu(props: any) {
               size="small"
               sx={{ marginRight: "10px" }}
               onClick={showModalHandler}
+              data-testid="loginBtn"
             >
               Login
             </Button>
             <Login showModal={showModal} onClose={closeModalHandler} />
             <Link href="/register">
-              <Button color="secondary" variant="outlined" size="small">
+              <Button
+                color="secondary"
+                variant="outlined"
+                size="small"
+                data-testid="signUpBtn"
+              >
                 Sign up
               </Button>
             </Link>
@@ -103,7 +109,11 @@ function NavMenu(props: any) {
               sx={{ width: 56, height: 56, display: "inline-block" }}
             />
             <br />
-            <Button onClick={logoutHandler} className={styles.logoutBtn}>
+            <Button
+              onClick={logoutHandler}
+              className={styles.logoutBtn}
+              data-testid="logoutBtn"
+            >
               Logout
             </Button>
           </>
