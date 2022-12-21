@@ -29,7 +29,6 @@ function PassengerBlog() {
         )
         .then((res: any) => {
           setTotalPages(res.data.totalPages);
-          console.log(totalPages);
           setData(data.concat(res.data.data));
           setLoading(false);
         });
