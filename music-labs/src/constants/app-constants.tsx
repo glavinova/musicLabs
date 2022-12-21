@@ -9,7 +9,7 @@ export const appConstants = {
   sections: [
     { title: "Home", url: "/" },
     { title: "Request Sheet Music", url: "#" },
-    { title: "Blog", url: "#" },
+    { title: "Blog", url: "/blog" },
     { title: "About Us", url: "#" },
   ],
   loremIpsumDescription:
