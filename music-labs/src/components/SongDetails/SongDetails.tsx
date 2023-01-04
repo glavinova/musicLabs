@@ -19,7 +19,7 @@ import AppContext from "../../context/app-context";
 import DownloadButton from "../DownloadButton/DownloadBtn";
 import { connect } from "react-redux";
 
-function SongDetails(props: any) {
+export function SongDetails(props: any) {
   const { state } = useLocation();
   const [data] = useState(state);
   const appCtx = useContext(AppContext);

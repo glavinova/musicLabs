@@ -35,6 +35,7 @@ export const logout = () => {
     .then(() => {
       localStorage.removeItem("token");
       localStorage.removeItem("userData");
+      localStorage.clear();
     });
   return {
     type: actionTypes.LOGOUT,

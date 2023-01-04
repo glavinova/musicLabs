@@ -14,11 +14,11 @@ import ExpandCircleDownIcon from "@mui/icons-material/ExpandCircleDown";
 import axios from "axios";
 import FacebookLogin from "react-facebook-login";
 
-function PassengerBlog() {
+export default function PassengerBlog() {
   const perPage = 9;
   const [data, setData] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
   const [loading, setLoading] = useState(false);
   //Facebook authentiaction
   const [fbLogin, setFbLogin] = useState(false);
@@ -58,12 +58,13 @@ function PassengerBlog() {
           {!fbLogin && (
             <FacebookLogin
               appId="829549608159536"
-              autoLoad={true}
+              autoLoad={false}
               fields="name,email,picture"
               scope="public_profile,user_friends"
               callback={responseFacebook}
               icon="fa-facebook"
               buttonStyle={{ width: "300px", height: "60px" }}
+              data-testid="facebookLoginBtn"
             />
           )}
           {fbLogin && (
@@ -81,7 +82,11 @@ function PassengerBlog() {
             />
           )}
         </div>
-        {fbLogin && <h5 style={{ marginLeft: "100px" }}>{fbData.name}</h5>}
+        {fbLogin && (
+          <h5 style={{ marginLeft: "100px", marginTop: "15px" }}>
+            {fbData.name}
+          </h5>
+        )}
       </Container>
       <Container sx={{ py: 8 }} maxWidth="md">
         <Grid container spacing={4}>
@@ -136,5 +141,3 @@ function PassengerBlog() {
     </React.Fragment>
   );
 }
-
-export default PassengerBlog;
