@@ -35,19 +35,20 @@ const PassengerBlog = () => {
     }
   };
 
+  const handleMoreItems = () => {
+    setLoading(true);
+    axios
+      .get(
+        `https://api.instantwebtools.net/v1/passenger?page=${page}&size=${perPage}`
+      )
+      .then((res: any) => {
+        setTotalPages(res.data.totalPages);
+        setData(data.concat(res.data.data));
+        setLoading(false);
+      });
+  };
+
   useEffect(() => {
-    const handleMoreItems = () => {
-      setLoading(true);
-      axios
-        .get(
-          `https://api.instantwebtools.net/v1/passenger?page=${page}&size=${perPage}`
-        )
-        .then((res: any) => {
-          setTotalPages(res.data.totalPages);
-          setData(data.concat(res.data.data));
-          setLoading(false);
-        });
-    };
     handleMoreItems();
   }, [page]);
 
@@ -142,6 +143,6 @@ const PassengerBlog = () => {
       ></Toolbar>
     </React.Fragment>
   );
-}
+};
 
 export default PassengerBlog;

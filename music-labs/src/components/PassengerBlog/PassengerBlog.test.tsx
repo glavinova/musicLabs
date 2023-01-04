@@ -51,8 +51,8 @@ describe("<PassengerBlog />", () => {
   //     }
 
   //     brw
-  //       .fill("email", "a.glavinova@hotmail.com")
-  //       .fill("pass", "Gl@vinov@5")
+  //       .fill("email", "")
+  //       .fill("pass", "")
   //       .pressButton("login", function () {
   //         brw.assert.success();
   //         done();

@@ -33,8 +33,6 @@ export const logout = () => {
   fetchClient()
     .post("https://reqres.in/api/logout")
     .then(() => {
-      localStorage.removeItem("token");
-      localStorage.removeItem("userData");
       localStorage.clear();
     });
   return {
