@@ -14,7 +14,7 @@ import ExpandCircleDownIcon from "@mui/icons-material/ExpandCircleDown";
 import axios from "axios";
 import FacebookLogin from "react-facebook-login";
 
-export default function PassengerBlog() {
+const PassengerBlog = () => {
   const perPage = 9;
   const [data, setData] = useState([]);
   const [totalPages, setTotalPages] = useState(1);
@@ -93,6 +93,7 @@ export default function PassengerBlog() {
           {data.map((i: any, index: any) => (
             <Grid
               data-testid="gridPassenger"
+              id="gridPassengerItem"
               item
               key={index}
               xs={12}
@@ -118,6 +119,7 @@ export default function PassengerBlog() {
         </Grid>
         {totalPages >= page ? (
           <Button
+            data-testid="loadMoreBtn"
             size="large"
             variant="outlined"
             endIcon={<ExpandCircleDownIcon />}
@@ -141,3 +143,5 @@ export default function PassengerBlog() {
     </React.Fragment>
   );
 }
+
+export default PassengerBlog;
