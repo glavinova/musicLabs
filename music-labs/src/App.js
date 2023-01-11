@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 import withRouter from "./components/WithRouter";
 import { Route, Routes } from "react-router-dom";
 import PassengerBlog from "./components/PassengerBlog/PassengerBlog";
+import RequestSheets from "./components/RequestSheets/RequestSheets";
 
 class App extends Component {
   componentDidMount() {
@@ -24,6 +25,7 @@ class App extends Component {
         <Route path="/" exact element={<HomePage />} />
         <Route path="/details" element={<SongDetails />} />
         <Route path="/blog" element={<PassengerBlog />} />
+        <Route path="/requestSheets" element={<RequestSheets />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route
           path="/reset-password-email-sent"
@@ -38,6 +40,7 @@ class App extends Component {
           <Route path="/" exact element={<HomePage />} />
           <Route path="/details" element={<SongDetails />} />
           <Route path="/blog" element={<PassengerBlog />} />
+          <Route path="/requestSheets" element={<RequestSheets />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
             path="/reset-password-email-sent"
