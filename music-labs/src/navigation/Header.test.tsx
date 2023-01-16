@@ -1,8 +1,6 @@
-import { Box } from "@mui/material";
 import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import SearchBar from "../components/SearchBar/SearchBar";
-import Footer from "./Footer";
 import Header from "./Header";
 import NavMenu from "./NavMenu";
 

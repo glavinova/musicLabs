@@ -2,19 +2,11 @@ import React from "react";
 import { configure, shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import PassengerBlog from "./PassengerBlog";
-import { Button, Container, Grid } from "@mui/material";
-import MockAdapter from "axios-mock-adapter";
+import { Button, Container } from "@mui/material";
 import axios from "axios";
-import {
-  act,
-  fireEvent,
-  render,
-  waitFor,
-  within,
-} from "@testing-library/react";
+import { render, waitFor } from "@testing-library/react";
 import { spy } from "fetch-mock";
 import FacebookLogin from "react-facebook-login";
-import { BrowserRouter as Router } from "react-router-dom";
 
 var chai = require("chai");
 var assert = chai.assert;
@@ -61,26 +53,26 @@ describe("<PassengerBlog />", () => {
   // );
   //});
 
-    it("should set the states", () => {
-      const responseFacebook = jest.fn();
-      const fbLoginBtn = shallow(
-        <FacebookLogin
-          appId="829549608159536"
-          autoLoad={true}
-          fields="name,email,picture"
-          scope="public_profile,user_friends"
-          callback={responseFacebook}
-          icon="fa-facebook"
-        />
-      );
-      const setState = jest.fn();
-      const useStateSpy: any = jest.spyOn(React, "useState");
-      useStateSpy.mockImplementation((init: any) => [init, setState]);
-      fbLoginBtn.at(0).simulate('click', { preventDefault() {} });
-      expect(responseFacebook.mock.calls.length).toEqual(1);
-      expect(setState).toHaveBeenCalled(); //check if the setState is called properly
-      expect(spy).toHaveBeenCalled();
-    });
+  it("should set the states", () => {
+    const responseFacebook = jest.fn();
+    const fbLoginBtn = shallow(
+      <FacebookLogin
+        appId="829549608159536"
+        autoLoad={true}
+        fields="name,email,picture"
+        scope="public_profile,user_friends"
+        callback={responseFacebook}
+        icon="fa-facebook"
+      />
+    );
+    const setState = jest.fn();
+    const useStateSpy: any = jest.spyOn(React, "useState");
+    useStateSpy.mockImplementation((init: any) => [init, setState]);
+    fbLoginBtn.at(0).simulate("click", { preventDefault() {} });
+    expect(responseFacebook.mock.calls.length).toEqual(1);
+    expect(setState).toHaveBeenCalled(); //check if the setState is called properly
+    expect(spy).toHaveBeenCalled();
+  });
   it("should call the pagination API", async () => {
     const mockDataResponse = [
       {
