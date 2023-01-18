@@ -9,17 +9,20 @@ configure({ adapter: new Adapter() });
 describe("<MainFeaturedPost />", () => {
   let wrapper: any;
   beforeEach(() => {
-    wrapper = shallow(<MainFeaturedPost post={{
-        description: "",
-        image: "",
-        imageText: "",
-        title: ""
-    }} />);
+    wrapper = shallow(
+      <MainFeaturedPost
+        post={{
+          description: "",
+          image: "",
+          imageText: "",
+          title: "",
+        }}
+      />
+    );
   });
 
   it("should exist the MainFeaturedPost component", () => {
     const paper = wrapper.find(Paper);
     expect(paper).toHaveLength(1);
   });
-
 });

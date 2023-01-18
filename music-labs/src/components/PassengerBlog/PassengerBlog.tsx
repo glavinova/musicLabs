@@ -11,8 +11,10 @@ import {
 } from "@mui/material";
 import styles from "./PassengerBlog.module.css";
 import ExpandCircleDownIcon from "@mui/icons-material/ExpandCircleDown";
-import axios from "axios";
 import FacebookLogin from "react-facebook-login";
+import dummyApiAxiosClient from "../../interceptors/dummy-api-axios-interceptor";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const PassengerBlog = () => {
   const perPage = 9;
@@ -37,12 +39,12 @@ const PassengerBlog = () => {
 
   const handleMoreItems = () => {
     setLoading(true);
-    axios
+    dummyApiAxiosClient()
       .get(
-        `https://api.instantwebtools.net/v1/passenger?page=${page}&size=${perPage}`
+       `https://dummyapi.io/data/v1/user?page=${page}&limit=${perPage}`
       )
       .then((res: any) => {
-        setTotalPages(res.data.totalPages);
+        setTotalPages(res.data.total);
         setData(data.concat(res.data.data));
         setLoading(false);
       });
@@ -102,17 +104,17 @@ const PassengerBlog = () => {
               md={4}
             >
               <Card className={styles.card}>
-                <CardMedia
-                  component="img"
+                <LazyLoadImage  
                   className={styles.cardMedia}
-                  image={i.airline[0].logo}
+                  src={i.picture}
                   alt="logo"
+                  effect="blur"
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    Name: {i.name}
+                  <Typography gutterBottom sx={{fontSize: "18px", fontWeight: "bold"}}>
+                    Name: <i>{i.firstName} {i.lastName} </i>
                   </Typography>
-                  <Typography>Number of trips: {i.trips}</Typography>
+                  <Typography>Title: {i.title}</Typography>
                 </CardContent>
               </Card>
             </Grid>

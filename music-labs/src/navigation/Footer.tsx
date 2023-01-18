@@ -17,22 +17,27 @@ export default function Footer() {
       <Container maxWidth="lg">
         <Typography variant="h6" align="center" gutterBottom>
           <BottomNavigationAction
+            aria-label="FacebookIcon"
             className={styles.colorBlack}
             icon={<FacebookIcon />}
           />
           <BottomNavigationAction
+            aria-label="GoogleIcon"
             className={styles.colorBlack}
             icon={<GoogleIcon />}
           />
           <BottomNavigationAction
+            aria-label="InstagramIcon"
             className={styles.colorBlack}
             icon={<InstagramIcon />}
           />
           <BottomNavigationAction
+            aria-label="LinkedInIcon"
             className={styles.colorBlack}
             icon={<LinkedInIcon />}
           />
           <BottomNavigationAction
+            aria-label="GitHubIcon"
             className={styles.colorBlack}
             icon={<GitHubIcon />}
           />

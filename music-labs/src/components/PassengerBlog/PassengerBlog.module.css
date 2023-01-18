@@ -16,9 +16,10 @@
 }
 
 .cardMedia {
-  width: 160px;
+  margin-top: 20px;
+  width: 20%;
   margin-left: 20px;
-  max-height: 50px;
+  height: 100%;
 }
 
 .card {

@@ -67,7 +67,6 @@ export default function SearchBar() {
           </SearchIconWrapper>
           <div data-testid="search-bar">
             <StyledInputBase
-              role="input"
               id="searchBar"
               type="text"
               placeholder="Search for Artist Name, Song Title, Genre or Instrument..."

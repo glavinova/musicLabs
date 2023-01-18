@@ -5,6 +5,7 @@ const fetchClient = () => {
     baseURL: "https://reqres.in/api/",
     headers: {
       'Content-Type': 'application/json',
+      'Cache-Control': 'must-revalidate, public, max-age=3600',
     },
   };
 

@@ -6,7 +6,6 @@ import ListGridItems from "./ListGridItems";
 import { MenuItem } from "@mui/material";
 import GridItemData from "../../interfaces/girdItemDummyData";
 import { BrowserRouter as Router } from "react-router-dom";
-import { render, fireEvent, within } from "@testing-library/react";
 import AppContext from "../../context/app-context";
 
 configure({ adapter: new Adapter() });

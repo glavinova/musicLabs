@@ -1,6 +1,5 @@
 import appConstants from "../constants/app-constants";
 import { ISongDetails, GenreEnum, DificulltyLevelEnum } from "./app-interfaces";
-;
 
 export const GridItemData: ISongDetails[] = [
   {
