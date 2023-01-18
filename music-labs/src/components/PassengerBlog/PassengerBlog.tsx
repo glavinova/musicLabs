@@ -13,6 +13,7 @@ import styles from "./PassengerBlog.module.css";
 import ExpandCircleDownIcon from "@mui/icons-material/ExpandCircleDown";
 import FacebookLogin from "react-facebook-login";
 import dummyApiAxiosClient from "../../interceptors/dummy-api-axios-interceptor";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const PassengerBlog = () => {
   const perPage = 9;
@@ -102,11 +103,10 @@ const PassengerBlog = () => {
               md={4}
             >
               <Card className={styles.card}>
-                <img
+                <LazyLoadImage  
                   className={styles.cardMedia}
                   src={i.picture}
                   alt="logo"
-                  loading="lazy"
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
                   <Typography gutterBottom sx={{fontSize: "18px", fontWeight: "bold"}}>
