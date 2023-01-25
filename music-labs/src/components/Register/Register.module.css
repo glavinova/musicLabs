@@ -9,6 +9,7 @@
   max-width: 600px;
   margin-bottom: 20px;
   margin-left: 280px;
+  filter: invert(var(--image-griditem-invert));
 }
 
 h3 {

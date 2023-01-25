@@ -5,9 +5,48 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --color-background: #fafafa;
+  --color-foreground: #1f2023;
+  --color-shadow: #aaa;
+  --color-paper-background: grey.800;
+
+  --image-filter-invert: 0;
+  --background-color-blog: white;
+  --img-dropshadow: 0 0 0 white;
+  --image-griditem-invert: 0;
+  --login-btn-color: #bd4b4b;
+}
+
+body.dark {
+  --color-background: #1f2023;
+  --color-foreground: #efefef;
+  --color-shadow: rgba(0, 0, 0, 0.8);
+  --color-paper-background: grey.800;
+
+  --image-filter-invert: 0.88;
+  --background-color-blog: #404144;
+  --img-dropshadow: drop-shadow(2px 4px 6px black);
+  --image-griditem-invert: 0.79;
+  --login-btn-color: #188380;
+}
+
+#root {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.react-toggle-track > * {
+  line-height: 10px !important;
+  font-size: 14px;
+}
+
+.react-toggle--checked > * {
+  background-color: #188380 !important;
+  border-color: black !important;
 }

@@ -13,8 +13,8 @@ import styles from "./PassengerBlog.module.css";
 import ExpandCircleDownIcon from "@mui/icons-material/ExpandCircleDown";
 import FacebookLogin from "react-facebook-login";
 import dummyApiAxiosClient from "../../interceptors/dummy-api-axios-interceptor";
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const PassengerBlog = () => {
   const perPage = 9;
@@ -40,9 +40,7 @@ const PassengerBlog = () => {
   const handleMoreItems = () => {
     setLoading(true);
     dummyApiAxiosClient()
-      .get(
-       `https://dummyapi.io/data/v1/user?page=${page}&limit=${perPage}`
-      )
+      .get(`https://dummyapi.io/data/v1/user?page=${page}&limit=${perPage}`)
       .then((res: any) => {
         setTotalPages(res.data.total);
         setData(data.concat(res.data.data));
@@ -104,15 +102,21 @@ const PassengerBlog = () => {
               md={4}
             >
               <Card className={styles.card}>
-                <LazyLoadImage  
+                <LazyLoadImage
                   className={styles.cardMedia}
                   src={i.picture}
                   alt="logo"
                   effect="blur"
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography gutterBottom sx={{fontSize: "18px", fontWeight: "bold"}}>
-                    Name: <i>{i.firstName} {i.lastName} </i>
+                  <Typography
+                    gutterBottom
+                    sx={{ fontSize: "18px", fontWeight: "bold" }}
+                  >
+                    Name:{" "}
+                    <i>
+                      {i.firstName} {i.lastName}{" "}
+                    </i>
                   </Typography>
                   <Typography>Title: {i.title}</Typography>
                 </CardContent>
@@ -120,7 +124,7 @@ const PassengerBlog = () => {
             </Grid>
           ))}
         </Grid>
-        {totalPages >= page ? (
+        {totalPages / perPage >= page ? (
           <Button
             data-testid="loadMoreBtn"
             size="large"

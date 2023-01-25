@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import Toolbar from "@mui/material/Toolbar";
-import { Avatar, Button, Link, Typography } from "@mui/material";
+import { Avatar, Button, Grid, Link, Typography } from "@mui/material";
 import appConstants from "../constants/app-constants";
 import styles from "./NavigationStyles.module.css";
 import Login from "../components/Login/Login";
@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import * as actions from "../store/actions/index";
 import { useNavigate } from "react-router-dom";
 import AppContext from "../context/app-context";
+import ColorSchemeToggle from "../components/ColorScheme/ColorSchemeToggle";
 
 function NavMenu(props: any) {
   const appCtx = useContext(AppContext);
@@ -70,7 +71,7 @@ function NavMenu(props: any) {
               color="secondary"
               variant="contained"
               size="small"
-              sx={{ marginRight: "10px" }}
+              className={styles.loginBtn}
               onClick={showModalHandler}
               data-testid="loginBtn"
             >
@@ -79,7 +80,7 @@ function NavMenu(props: any) {
             <Login showModal={showModal} onClose={closeModalHandler} />
             <Link href="/register">
               <Button
-                color="secondary"
+                className={styles.signUpBtn}
                 variant="outlined"
                 size="small"
                 data-testid="signUpBtn"
@@ -119,6 +120,9 @@ function NavMenu(props: any) {
           </>
         )}
       </Toolbar>
+      <Grid>
+        <ColorSchemeToggle />
+      </Grid>
     </React.Fragment>
   );
 }
