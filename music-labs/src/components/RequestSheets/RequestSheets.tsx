@@ -188,7 +188,7 @@ const RequestSheets = () => {
       </Paper>
       <Grid item xs={12} className={styles.marginBottom40}>
         <Button className={styles.floatRight}>
-          <Link href="/" underline="none" color="primary">
+          <Link href="/" underline="none" className={styles.linkBack}>
             <ArrowBackIcon className={styles.fontSize15} />
             &nbsp;Back to home page
           </Link>

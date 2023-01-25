@@ -13,7 +13,11 @@ import styles from "./NavigationStyles.module.css";
 
 export default function Footer() {
   return (
-    <Box component="footer" sx={{ bgcolor: "background.paper", py: 6 }}>
+    <Box
+      component="footer"
+      sx={{ bgcolor: "background.paper", py: 6 }}
+      className={styles.footer}
+    >
       <Container maxWidth="lg">
         <Typography variant="h6" align="center" gutterBottom>
           <BottomNavigationAction
@@ -45,12 +49,16 @@ export default function Footer() {
         <Typography
           variant="subtitle1"
           align="center"
-          color="text.secondary"
           component="p"
+          className={styles.footerTypography}
         >
           Music notes for everyone !
         </Typography>
-        <Typography variant="body2" color="text.secondary" align="center">
+        <Typography
+          variant="body2"
+          className={styles.footerTypography}
+          align="center"
+        >
           {"Copyright © "}
           <Link color="inherit" href="#">
             Music Labs

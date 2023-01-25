@@ -5,6 +5,7 @@
 
 .form {
   padding: 40px;
+  filter: invert(var(--image-griditem-invert));
 }
 
 h3 {

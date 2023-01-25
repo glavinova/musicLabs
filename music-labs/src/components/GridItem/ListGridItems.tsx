@@ -36,7 +36,9 @@ export default function ListGridItems() {
           className={styles.formControlCustomStyle}
           sx={{ margin: "10px -20px" }}
         >
-          <InputLabel id="sort-label">Sort</InputLabel>
+          <InputLabel id="sort-label" className={styles.select}>
+            Sort
+          </InputLabel>
           <Select
             labelId="sort-label"
             id="sortLabel"
@@ -45,6 +47,7 @@ export default function ListGridItems() {
             label="Sort"
             role="listbox"
             onChange={sortItems}
+            className={styles.select}
           >
             <MenuItem value="a-z">Song Name (Ascending)</MenuItem>
             <MenuItem value="z-a">Song Name (Descending)</MenuItem>

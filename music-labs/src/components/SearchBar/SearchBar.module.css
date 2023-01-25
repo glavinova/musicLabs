@@ -2,4 +2,5 @@
   width: 300px;
   height: 50px;
   margin: 10px 0;
+  filter: invert(var(--image-filter-invert));
 }

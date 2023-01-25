@@ -6,6 +6,7 @@
 
 .marginTop20 {
   margin-top: 20px;
+  filter: invert(var(--image-griditem-invert));
 }
 
 .marginBottom20 {
@@ -22,6 +23,7 @@
   height: 400px;
   object-fit: cover;
   padding-left: 30px;
+  filter: invert(var(--image-griditem-invert));
 }
 
 .marginLeft10 {

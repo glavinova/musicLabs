@@ -6,3 +6,7 @@
   width: 20%;
   float: right;
 }
+
+.select {
+  color: var(--color-foreground);
+}
