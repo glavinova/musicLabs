@@ -10,7 +10,7 @@ export const appConstants = {
     { title: "Home", url: "/" },
     { title: "Request Sheet Music", url: "/requestSheets" },
     { title: "Blog", url: "/blog" },
-    { title: "About Us", url: "#" },
+    { title: "About Us", url: "/aboutus" },
   ],
   loremIpsumDescription:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta lacinia magna eget mollis. Fusce bibendum faucibus dolor, a lobortis ligula rutrum at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In porta lacinia magna eget mollis.",

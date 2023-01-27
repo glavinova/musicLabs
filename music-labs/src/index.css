@@ -12,6 +12,7 @@ body {
   --color-paper-background: grey.800;
 
   --image-filter-invert: 0;
+  --image-about-us-invert: 0;
   --background-color-blog: white;
   --img-dropshadow: 0 0 0 white;
   --image-griditem-invert: 0;
@@ -25,6 +26,7 @@ body.dark {
   --color-paper-background: grey.800;
 
   --image-filter-invert: 0.88;
+  --image-about-us-invert: 1;
   --background-color-blog: #404144;
   --img-dropshadow: drop-shadow(2px 4px 6px black);
   --image-griditem-invert: 0.79;
