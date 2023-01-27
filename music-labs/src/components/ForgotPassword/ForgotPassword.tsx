@@ -43,7 +43,11 @@ const ForgotPassword = () => {
         className={styles.gridCustomStyle}
       >
         <Grid item xs={12}>
-          <h3 id="header" data-testid="header">
+          <h3
+            id="header"
+            data-testid="header"
+            className={styles.forgotPassHeader}
+          >
             Forgot your password ?
           </h3>
         </Grid>
