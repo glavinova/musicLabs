@@ -44,11 +44,6 @@ class App extends Component {
           <Route path="/blog" element={<PassengerBlog />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/requestSheets" element={<RequestSheets />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route
-            path="/reset-password-email-sent"
-            element={<ValidationEmail />}
-          />
         </Routes>
       );
     }
