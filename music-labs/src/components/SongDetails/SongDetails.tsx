@@ -14,7 +14,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Link from "@mui/material/Link";
 import { useLocation } from "react-router";
-import styles from "./SongDetails.module.css";
+import styles from "./SongDetails.module.scss";
 import AppContext from "../../context/app-context";
 import DownloadButton from "../DownloadButton/DownloadBtn";
 import { connect } from "react-redux";

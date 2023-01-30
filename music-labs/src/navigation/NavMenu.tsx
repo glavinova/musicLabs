@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Toolbar from "@mui/material/Toolbar";
 import { Avatar, Button, Grid, Link, Typography } from "@mui/material";
 import appConstants from "../constants/app-constants";
-import styles from "./NavigationStyles.module.css";
+import styles from "./NavigationStyles.module.scss";
 import Login from "../components/Login/Login";
 import { connect } from "react-redux";
 import * as actions from "../store/actions/index";

@@ -14,7 +14,7 @@ import AppContext from "../../context/app-context";
 import useValidation from "../../hooks/use-validation";
 import validateEmail from "../../validators/validateEmail";
 import validatePassword from "../../validators/validatePassword";
-import styles from "./Login.module.css";
+import styles from "./Login.module.scss";
 import * as actions from "../../store/actions/index";
 import { connect } from "react-redux";
 

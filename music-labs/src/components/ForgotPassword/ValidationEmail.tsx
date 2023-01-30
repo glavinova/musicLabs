@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { Grid } from "@material-ui/core";
 import AppContext from "../../context/app-context";
-import styles from "./ForgotPassword.module.css";
+import styles from "./ForgotPassword.module.scss";
 
 const ValidationEmail = () => {
   const appCtx = useContext(AppContext);

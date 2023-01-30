@@ -11,7 +11,7 @@ import { ISongDetails } from "../../interfaces/app-interfaces";
 import GridItemData from "../../interfaces/girdItemDummyData";
 import GridItem from "./GridItem";
 import AppContext from "../../context/app-context";
-import styles from "./ListGridItems.module.css";
+import styles from "./ListGridItems.module.scss";
 
 export default function ListGridItems() {
   const appCtx = useContext(AppContext);

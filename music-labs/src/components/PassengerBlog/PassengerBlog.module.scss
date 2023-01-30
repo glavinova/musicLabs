@@ -1,0 +1,31 @@
+@import "../../index.scss";
+
+.toolbarCustomStyle {
+	justify-content: space-between;
+	overflow-x: auto;
+}
+.loadBtn {
+	margin-top: 20px;
+	float: right;
+	color: $foreground-color;
+}
+.endOfText {
+	color: gray;
+	font-style: italic;
+	text-align: right;
+	margin-top: 20px;
+}
+.cardMedia {
+	margin-top: 20px;
+	width: 20%;
+	margin-left: 20px;
+	height: 100%;
+	filter: drop-shadow($dropshadow-image);
+}
+.card {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	color: $foreground-color;
+	background-color: $blog-color-background;
+}

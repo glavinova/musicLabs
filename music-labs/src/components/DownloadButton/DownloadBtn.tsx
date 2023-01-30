@@ -1,7 +1,7 @@
 import { Button } from "@mui/material";
 import React from "react";
 import DownloadIcon from "@mui/icons-material/Download";
-import styles from "./DownloadBtn.module.css";
+import styles from "./DownloadBtn.module.scss";
 
 export const onDownload = () => {
   const link = document.createElement("a");

@@ -1,18 +1,17 @@
+@import "../../index.scss";
+
 .instrumentCard {
   background-position: center;
   background-size: cover;
-  filter: invert(var(--image-about-us-invert));
+  filter: $filter-invert-about-us;
 }
-
 .fontBold {
   font-weight: bold;
 }
-
 .marginTopBottomAuto {
   margin-top: auto;
   margin-bottom: auto;
 }
-
 .boxImg {
   width: 13%;
   opacity: 1;
@@ -20,13 +19,11 @@
   color: rgb(52, 71, 103);
   position: absolute;
   border-radius: 0.375rem;
-  filter: invert(var(--image-about-us-invert));
+  filter: $filter-invert-about-us;
 }
-
 .mainCard {
-  filter: invert(var(--image-griditem-invert));
+  filter: $grid-item-invert;
 }
-
 .mainBox {
   min-height: 75vh;
   width: 100%;
@@ -35,16 +32,13 @@
   display: grid;
   place-items: center;
   background-image: url("../../../public/images/about_us_background.jpg");
-
-  filter: invert(var(--image-griditem-invert));
+  filter: $grid-item-invert;
 }
-
 .secondMainHeading {
   background-color: #dddddd;
   font-weight: bold;
   color: black !important;
 }
-
 .firstGrid {
   justify-content: center;
   align-items: center;
@@ -53,48 +47,38 @@
   margin-right: auto;
   text-align: center;
 }
-
 .contentCenter {
   justify-content: center;
   text-align: center;
 }
-
 .height100 {
   height: 100%;
 }
-
 .marginLeftAuto {
   margin-left: auto;
 }
-
 .translatePiano {
   transform: translate(60px, -90px);
 }
-
 .translateDrums {
   transform: translate(-80px, -90px);
 }
-
 .translateGuitar {
   transform: translate(-20px, 45px);
 }
-
 .translateVoice {
   transform: translate(-135px, 45px);
 }
-
 .instrumentsGrid {
   display: inherit;
   text-align: center;
   margin-top: 30px;
 }
-
 .instrumentTypography {
   text-align: center;
   margin-top: 30px;
   margin-left: -30px;
 }
-
 .instrumentsContainer {
   justify-content: center;
   background-color: lightgrey;
@@ -103,32 +87,26 @@
   margin-top: 45px;
   height: 400px;
 }
-
 .fontSize60 {
   font-size: 60px;
 }
-
 .iconsContainer {
   display: inherit;
   text-align: center;
   margin-top: 50px;
 }
-
 .iconsTypography {
   text-align: center;
   margin-top: 30px;
 }
-
 .teamTypography {
   color: white;
   opacity: 0.8;
 }
-
 .teamSection {
   background-color: #433d3c;
   position: relative;
 }
-
 .adImage {
-  filter: invert(var(--image-about-us-invert));
+  filter: $filter-invert-about-us;
 }

@@ -8,7 +8,7 @@ import CardMedia from "@mui/material/CardMedia";
 import appConstants from "../../constants/app-constants";
 import { ISongDetails } from "../../interfaces/app-interfaces";
 import { Link } from "react-router-dom";
-import styles from "./GridItem.module.css";
+import styles from "./GridItem.module.scss";
 
 export default function GridItem(props: ISongDetails) {
   const partText = props.parts === 1 ? "part" : "parts";

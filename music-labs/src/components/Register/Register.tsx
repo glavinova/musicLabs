@@ -13,7 +13,7 @@ import useValidation from "../../hooks/use-validation";
 import validateEmail from "../../validators/validateEmail";
 import validatePassword from "../../validators/validatePassword";
 import * as actions from "../../store/actions/index";
-import styles from "./Register.module.css";
+import styles from "./Register.module.scss";
 import { connect } from "react-redux";
 
 function Register(props: any) {

@@ -1,0 +1,63 @@
+$font-family_1: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+  "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  sans-serif;
+$font-family_2: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  monospace;
+$background-color: var(--color-background);
+$foreground-color: var(--color-foreground);
+$shadow-color: var(--color-shadow);
+$paper-background-color: var(--color-paper-background);
+$blog-color-background: var(--background-color-blog);
+$dropshadow-image: var(--img-dropshadow);
+$login-button-color: var(--login-btn-color);
+$filter-invert-image: var(--image-filter-invert);
+$grid-item-invert: var(--image-griditem-invert);
+$filter-invert-about-us: var(--image-about-us-invert);
+
+body {
+  margin: 0;
+  font-family: $font-family_1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --color-background: #fafafa;
+  --color-foreground: #1f2023;
+  --color-shadow: #aaa;
+  --color-paper-background: grey.800;
+  --image-filter-invert: invert(0);
+  --image-about-us-invert: invert(0);
+  --background-color-blog: white;
+  --img-dropshadow: 0 0 0 white;
+  --image-griditem-invert: invert(0);
+  --login-btn-color: #bd4b4b;
+  &.dark {
+    --color-background: #1f2023;
+    --color-foreground: #efefef;
+    --color-shadow: rgba(0, 0, 0, 0.8);
+    --color-paper-background: grey.800;
+    --image-filter-invert: invert(0.88);
+    --image-about-us-invert: invert(1);
+    --background-color-blog: #404144;
+    --img-dropshadow: drop-shadow(2px 4px 6px black);
+    --image-griditem-invert: invert(0.79);
+    --login-btn-color: #188380;
+  }
+}
+#root {
+  background-color: $background-color;
+  color: $foreground-color;
+}
+code {
+  font-family: $font-family_2;
+}
+.react-toggle-track {
+  & > * {
+    line-height: 10px !important;
+    font-size: 14px;
+  }
+}
+.react-toggle--checked {
+  & > * {
+    background-color: #188380 !important;
+    border-color: black !important;
+  }
+}

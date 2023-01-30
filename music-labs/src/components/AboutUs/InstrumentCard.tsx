@@ -1,6 +1,6 @@
 import { CardActionArea, CardContent, Typography } from "@mui/material";
 import Card from "@mui/material/Card";
-import styles from "./AboutUs.module.css";
+import styles from "./AboutUs.module.scss";
 
 function InstrumentCard(props: any) {
   return (

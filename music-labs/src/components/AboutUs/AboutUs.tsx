@@ -11,7 +11,7 @@ import AttachFileIcon from "@mui/icons-material/AttachFile";
 import ShareIcon from "@mui/icons-material/Share";
 import ThumbUpAltIcon from "@mui/icons-material/ThumbUpAlt";
 import InstrumentCard from "./InstrumentCard";
-import styles from "./AboutUs.module.css";
+import styles from "./AboutUs.module.scss";
 
 const AboutUs = () => {
   return (

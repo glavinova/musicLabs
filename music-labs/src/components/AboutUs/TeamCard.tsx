@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
-import styles from "./AboutUs.module.css";
+import styles from "./AboutUs.module.scss";
 
 function TeamCard(props: any) {
   return (

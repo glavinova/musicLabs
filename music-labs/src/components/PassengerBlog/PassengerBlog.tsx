@@ -9,7 +9,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import styles from "./PassengerBlog.module.css";
+import styles from "./PassengerBlog.module.scss";
 import ExpandCircleDownIcon from "@mui/icons-material/ExpandCircleDown";
 import FacebookLogin from "react-facebook-login";
 import dummyApiAxiosClient from "../../interceptors/dummy-api-axios-interceptor";
