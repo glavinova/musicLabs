@@ -21,6 +21,14 @@
   border-radius: 0.375rem;
   filter: $filter-invert-about-us;
 }
+@media screen and (max-width: 600px) {
+  .boxImg {
+    width: 30%;
+  }
+  .marginTopBottomAuto {
+    padding-left: 145px;
+  }
+}
 .mainCard {
   filter: $grid-item-invert;
 }
@@ -62,6 +70,11 @@
 }
 .translateDrums {
   transform: translate(-80px, -90px);
+}
+@media screen and (max-width: 600px) {
+  .translateDrums {
+    transform: translate(-40px, -90px);
+  }
 }
 .translateGuitar {
   transform: translate(-20px, 45px);
@@ -109,4 +122,12 @@
 }
 .adImage {
   filter: $filter-invert-about-us;
+}
+@media screen and (max-width: 900px) {
+  .marginTopBottomAuto {
+    padding-left: 145px;
+  }
+  .translateDrums {
+    transform: translate(-40px, -90px);
+  }
 }

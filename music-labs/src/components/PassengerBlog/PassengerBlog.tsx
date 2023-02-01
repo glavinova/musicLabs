@@ -54,7 +54,7 @@ const PassengerBlog = () => {
 
   return (
     <React.Fragment>
-      <Container sx={{ marginBottom: "30px", marginRight: 0, width: "350px" }}>
+      <Container className={styles.facebookContainer}>
         <div>
           {!fbLogin && (
             <FacebookLogin
@@ -64,7 +64,11 @@ const PassengerBlog = () => {
               scope="public_profile,user_friends"
               callback={responseFacebook}
               icon="fa-facebook"
-              buttonStyle={{ width: "300px", height: "60px" }}
+              buttonStyle={{
+                width: "210px",
+                height: " 55px",
+                fontSize: "calc(.27548vw + 7.7107px)",
+              }}
               data-testid="facebookLoginBtn"
             />
           )}
@@ -73,21 +77,11 @@ const PassengerBlog = () => {
               component="img"
               image={fbPicture}
               alt="fbProfilePicture"
-              sx={{
-                width: 50,
-                height: 50,
-                float: "right",
-                borderRadius: 7,
-                marginTop: "-15px",
-              }}
+              className={styles.fbProfilePicture}
             />
           )}
         </div>
-        {fbLogin && (
-          <h5 style={{ marginLeft: "100px", marginTop: "15px" }}>
-            {fbData.name}
-          </h5>
-        )}
+        {fbLogin && <h5 className={styles.fbName}>{fbData.name}</h5>}
       </Container>
       <Container sx={{ py: 8 }} maxWidth="md">
         <Grid container spacing={4}>
@@ -109,10 +103,7 @@ const PassengerBlog = () => {
                   effect="blur"
                 />
                 <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography
-                    gutterBottom
-                    sx={{ fontSize: "18px", fontWeight: "bold" }}
-                  >
+                  <Typography gutterBottom className={styles.cardItem}>
                     Name:{" "}
                     <i>
                       {i.firstName} {i.lastName}{" "}

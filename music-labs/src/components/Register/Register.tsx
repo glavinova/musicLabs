@@ -153,7 +153,7 @@ function Register(props: any) {
                 onBlur={confirmPasswordBlurHandler}
                 value={confirmPasswordValue}
                 inputProps={{ maxLength: 40 }}
-                sx={{ marginBottom: "20px" }}
+                className={styles.marginBottom20}
               />
             </Grid>
             <Grid item xs={12}>

@@ -1,7 +1,15 @@
 @import "../index.scss";
 
-.overflowXauto {
+.loggedUserToolbar {
   overflow-x: auto;
+  display: inline-block;
+  margin-top: 5px;
+  padding-top: 15px;
+}
+.avatar {
+  width: 56;
+  height: 56;
+  display: inline-block;
 }
 .linkCustomStyle {
   padding: 1;
@@ -38,4 +46,27 @@
 .loginBtn {
   background-color: $login-button-color;
   margin-right: 10px;
+}
+.firstToolbar {
+  display: inline-block;
+  margin-top: 15px;
+  overflow-x: auto;
+}
+.secondToolbar {
+  display: block;
+  margin-top: 10px;
+  float: right;
+}
+@media screen and (max-width: 650px) {
+  .navGrid {
+    margin-top: -25px;
+  }
+  .loggedNavGrid {
+    margin-top: -60px;
+  }
+}
+@media screen and (max-width: 900px) and (min-width: 650px) {
+  .navGrid {
+    margin-top: 45px;
+  }
 }
