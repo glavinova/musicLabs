@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`index.tsx unit test Should render app without crashing 1`] = `"{\\"_reactInternalInstance\\":\\"censored\\"}"`;

@@ -18,9 +18,11 @@ const ValidationEmail = () => {
         justifyContent="center"
         className={styles.body}
       >
-        <h1 className={styles.title}>Check your email!</h1>
+        <h1 className={styles.title} id="title">
+          Check your email!
+        </h1>
 
-        <p className={styles.message}>
+        <p className={styles.message} id="textContent">
           An email has been sent to your email address containing a link that
           will let you reset your password. If you do not receive an email
           within a few minutes, please check your spam folder.

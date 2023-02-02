@@ -11,6 +11,7 @@ const ColorSchemeToggle: React.FC = () => {
         onChange={(event: any) => setIsDark(event.target.checked)}
         icons={{ checked: "🌙", unchecked: "🔆" }}
         aria-label="Dark mode"
+        id="themeToggle"
       />
     </div>
   );

@@ -19,13 +19,7 @@ const AboutUs = () => {
       <Box className={styles.mainBox}>
         <Container>
           <Grid container item xs={12} lg={8} className={styles.firstGrid}>
-            <Typography
-              variant="h1"
-              color="black"
-              sx={({ breakpoints }) => ({
-                [breakpoints.down("md")]: {},
-              })}
-            >
+            <Typography variant="h1" color="black">
               When words fail, music speaks
             </Typography>
             <Typography
@@ -125,10 +119,8 @@ const AboutUs = () => {
                   <TeamCard
                     image="./images/woman-profile.jpg"
                     name="Olivia Taylor"
-                    position={{
-                      color: "primary",
-                      label: "Front-end developer",
-                    }}
+                    color="primary"
+                    label="Front-end developer"
                     description="What separates design from art is that design is meant to be… functional."
                   />
                 </Box>
@@ -138,7 +130,8 @@ const AboutUs = () => {
                   <TeamCard
                     image="./images/man-profile.jpg"
                     name="Dylan Hudson"
-                    position={{ color: "primary", label: "Technical Lead" }}
+                    color="primary"
+                    label="Technical Lead"
                     description="Learning to code is useful no matter what your career ambitions are."
                   />
                 </Box>
@@ -150,7 +143,7 @@ const AboutUs = () => {
           <Typography variant="h4" className={styles.iconsTypography}>
             Why Music Labs?
           </Typography>
-          <Grid xs={12} sm={12} className={styles.iconsContainer}>
+          <Grid item xs={12} sm={12} className={styles.iconsContainer}>
             <Grid item xs={6} sm={4}>
               <LibraryMusicIcon className={styles.fontSize60} /> <br /> Over 200
               000 music sheets
@@ -164,7 +157,7 @@ const AboutUs = () => {
               music sheets
             </Grid>
           </Grid>
-          <Grid xs={12} sm={12} className={styles.iconsContainer}>
+          <Grid item xs={12} sm={12} className={styles.iconsContainer}>
             <Grid item xs={6} sm={4}>
               <AttachFileIcon className={styles.fontSize60} /> <br /> Get your
               PDF music sheets
@@ -183,7 +176,7 @@ const AboutUs = () => {
           <Typography variant="h4" className={styles.instrumentTypography}>
             Available music sheets for
           </Typography>
-          <Grid xs={12} sm={12} className={styles.instrumentsGrid}>
+          <Grid item xs={12} sm={12} className={styles.instrumentsGrid}>
             <Grid item xs={6} sm={4} className={styles.translatePiano}>
               <InstrumentCard
                 instrument="Piano"

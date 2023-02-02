@@ -1,5 +1,6 @@
 import React from "react";
 import { configure, shallow } from "enzyme";
+import { render } from "@testing-library/react";
 import Adapter from "enzyme-adapter-react-16";
 import GridItem from "./GridItem";
 import ListGridItems from "./ListGridItems";
@@ -7,6 +8,7 @@ import { MenuItem } from "@mui/material";
 import GridItemData from "../../interfaces/girdItemDummyData";
 import { BrowserRouter as Router } from "react-router-dom";
 import AppContext from "../../context/app-context";
+import userEvent from "@testing-library/user-event";
 
 configure({ adapter: new Adapter() });
 
@@ -66,23 +68,29 @@ describe("<ListGridItems />", () => {
     );
   });
 
-  // it("should set the setSortType state", () => {
-  //   const setState = jest.fn();
-  //   const useStateSpy: any = jest.spyOn(React, "useState");
-  //   useStateSpy.mockImplementation((init: any) => [init, setState]);
-  //   const sortHandler = require("./ListGridItems");
-  //   const spy = jest.spyOn(sortHandler, "sortHandler");
-  //   const { getByRole, getByTestId } = render(
-  //     <Router>
-  //       <ListGridItems />
-  //     </Router>
-  //   );
-  //   fireEvent.mouseDown(getByTestId("sortLabel"));
-  //   const listbox = within(getByRole("listbox"));
-  //   fireEvent.click(listbox.getByRole("button"));
-  //   expect(setState).toHaveBeenCalled(); //check if the setState is called properly
-  //   expect(spy).toHaveBeenCalled(); //check if the sortHandler function was called properly
-  // });
+  it("should set the setSortType state", async () => {
+    const setItemsData = jest.fn();
+    const useStateSpy: any = jest.spyOn(React, "useState");
+    useStateSpy.mockImplementation((data: any) => [data, setItemsData]);
+    const { getByText, getByRole, findByRole, getByTestId, getAllByTestId } =
+      render(
+        <Router>
+          <ListGridItems />
+        </Router>
+      );
+    //Show 16 Grid Items by default
+    const gridItems = getAllByTestId("gridItem");
+    expect(gridItems.length).toEqual(16);
+    //Click the sort dropdown
+    const dropdownButton = getByTestId("sortLabel");
+    userEvent.click(dropdownButton);
+    //const listbox = within(getByRole("listbox"));
+    const dropdownItem = await getByText("Song Name (Ascending)");
+    userEvent.click(dropdownItem);
+    // fireEvent.mouseDown(getByTestId("sortLabel"));
+    // fireEvent.click(listbox.getByRole("button"));
+    expect(setItemsData).toHaveBeenCalled(); //check if the setState is called properly
+  });
 
   it("should show all data if filter term is empty", () => {
     const mockFilterTerm = "Aria";
@@ -107,6 +115,6 @@ describe("<ListGridItems />", () => {
       </AppContext.Provider>
     );
     expect(filteredData).toEqual(data);
-    //expect(component.find(GridItem)).toHaveLength(16);
+    expect(data.length).toEqual(16);
   });
 });

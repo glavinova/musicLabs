@@ -14,7 +14,13 @@ export default function GridItem(props: ISongDetails) {
   const partText = props.parts === 1 ? "part" : "parts";
 
   return (
-    <Grid item xs={12} md={6} className={styles.paddingBottom5}>
+    <Grid
+      item
+      xs={12}
+      md={6}
+      className={styles.paddingBottom5}
+      data-testid="gridItem"
+    >
       <CardActionArea>
         <Card className={styles.cardCustomStyle}>
           <CardContent className={styles.flex1}>

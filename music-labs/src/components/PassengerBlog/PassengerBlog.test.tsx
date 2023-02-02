@@ -8,11 +8,6 @@ import { render, waitFor } from "@testing-library/react";
 import { spy } from "fetch-mock";
 import FacebookLogin from "react-facebook-login";
 
-var chai = require("chai");
-var assert = chai.assert;
-var server;
-var Browser = require("zombie");
-
 configure({ adapter: new Adapter() });
 jest.mock("axios");
 
@@ -27,47 +22,16 @@ describe("<PassengerBlog />", () => {
     expect(wrapper.find(FacebookLogin)).toHaveLength(1);
   });
 
-  //it("should authenticate on Facebook", (done) => {
-  // var express = require("./config/express");
-  // var app = express();
-  // var server = app.listen(3000, function () {
-  //   var port = server.address().port;
-  //   console.log("Server running at %s", port);
-  // });
-  // const wrapper = shallow(<PassengerBlog />);
-  // Browser.visit(
-  //   "http://127.0.0.1:3000/auth/facebook",
-  //   function (err: any, brw: any) {
-  //     if (err) {
-  //       throw err;
-  //     }
-
-  //     brw
-  //       .fill("email", "")
-  //       .fill("pass", "")
-  //       .pressButton("login", function () {
-  //         brw.assert.success();
-  //         done();
-  //       });
-  //   }
-  // );
-  //});
-
   it("should set the states", () => {
+    const wrapper = shallow(<PassengerBlog />);
+    const fbScript = document.createElement("script");
+    fbScript.id = "facebook-jssdk";
+    document.body.appendChild(fbScript);
     const responseFacebook = jest.fn();
-    const fbLoginBtn = shallow(
-      <FacebookLogin
-        appId="829549608159536"
-        autoLoad={true}
-        fields="name,email,picture"
-        scope="public_profile,user_friends"
-        callback={responseFacebook}
-        icon="fa-facebook"
-      />
-    );
     const setState = jest.fn();
     const useStateSpy: any = jest.spyOn(React, "useState");
     useStateSpy.mockImplementation((init: any) => [init, setState]);
+    const fbLoginBtn = wrapper.find(FacebookLogin);
     fbLoginBtn.at(0).simulate("click", { preventDefault() {} });
     expect(responseFacebook.mock.calls.length).toEqual(1);
     expect(setState).toHaveBeenCalled(); //check if the setState is called properly
@@ -127,7 +91,7 @@ describe("<PassengerBlog />", () => {
     const handleMoreItems = jest.fn();
     expect(loadMoreButton).toHaveLength(1);
     loadMoreButton.at(0).simulate("click");
-    //expect(handleMoreItems).toHaveBeenCalled();
+    expect(handleMoreItems).toHaveBeenCalled();
   });
 
   it("should spy on axios and test the useEffect hook", async () => {

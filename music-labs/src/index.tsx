@@ -3,7 +3,7 @@ import "./index.scss";
 import App from "./App";
 import { StyledEngineProvider } from "@mui/material/styles";
 import { myErrorHandler } from "./context/errorBoundary";
-import {ErrorBoundary} from 'react-error-boundary';
+import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "./context/errorBoundary";
 import { ThemeProvider } from "@emotion/react";
 import { CssBaseline } from "@mui/material";
@@ -31,7 +31,8 @@ const theme = createTheme({
   },
 });
 
-const container = document.getElementById("root");
+const container =
+  document.getElementById("root") || document.createElement("div");
 const root = createRoot(container!);
 
 const rootReducer = combineReducers({
@@ -40,7 +41,7 @@ const rootReducer = combineReducers({
 
 const store = configureStore({ reducer: rootReducer });
 
-root.render(
+export default root.render(
   <React.StrictMode>
     <ErrorBoundary FallbackComponent={ErrorFallback} onError={myErrorHandler}>
       <AppContextProvider>

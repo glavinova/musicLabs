@@ -28,8 +28,8 @@ function TeamCard(props: any) {
             <Typography variant="h5" className={styles.fontBold}>
               {props.name}
             </Typography>
-            <Typography variant="h6" color={props.position.color} mb={1}>
-              {props.position.label}
+            <Typography variant="h6" color={props.color} mb={1}>
+              {props.label}
             </Typography>
             <Typography variant="body2">{props.description}</Typography>
           </Box>
