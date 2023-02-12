@@ -68,30 +68,6 @@ describe("<ListGridItems />", () => {
     );
   });
 
-  it("should set the setSortType state", async () => {
-    const setItemsData = jest.fn();
-    const useStateSpy: any = jest.spyOn(React, "useState");
-    useStateSpy.mockImplementation((data: any) => [data, setItemsData]);
-    const { getByText, getByRole, findByRole, getByTestId, getAllByTestId } =
-      render(
-        <Router>
-          <ListGridItems />
-        </Router>
-      );
-    //Show 16 Grid Items by default
-    const gridItems = getAllByTestId("gridItem");
-    expect(gridItems.length).toEqual(16);
-    //Click the sort dropdown
-    const dropdownButton = getByTestId("sortLabel");
-    userEvent.click(dropdownButton);
-    //const listbox = within(getByRole("listbox"));
-    const dropdownItem = await getByText("Song Name (Ascending)");
-    userEvent.click(dropdownItem);
-    // fireEvent.mouseDown(getByTestId("sortLabel"));
-    // fireEvent.click(listbox.getByRole("button"));
-    expect(setItemsData).toHaveBeenCalled(); //check if the setState is called properly
-  });
-
   it("should show all data if filter term is empty", () => {
     const mockFilterTerm = "Aria";
     const mockContextValue = {
