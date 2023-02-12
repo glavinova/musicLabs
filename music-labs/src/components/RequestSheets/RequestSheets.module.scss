@@ -1,54 +1,93 @@
+@import "../../index.scss";
+
+.contactForm {
+  position: absolute;
+  color: #fff;
+  font-family: sans-serif;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2),
+    0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+.contactFormInput {
+  width: 100%;
+  border: 0;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+.contactFormTextarea {
+  width: 100%;
+  border: 0;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+  height: 100px;
+  resize: vertical;
+}
+.button {
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  cursor: pointer;
+  background: #bd4b4b;
+  font-weight: bold;
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+.spanNone {
+  display: none;
+  text-align: center;
+}
+.spanVisible {
+  display: visible;
+}
 * {
   margin: 0;
   padding: 0;
 }
-
 .paper {
   padding: 40px;
   margin-top: 20px;
   max-width: 600px;
   margin-bottom: 20px;
   margin-left: 280px;
-  filter: invert(var(--image-griditem-invert));
+  filter: $grid-item-invert;
 }
-
 h3 {
   margin-bottom: 10px;
 }
-
 .textField {
   margin-top: 5px;
   margin-bottom: 10px !important;
 }
-
 .loginBtn {
   padding-left: 12% !important;
   padding-right: 12% !important;
   margin-right: 9px !important;
   margin-bottom: 10px !important;
 }
-
 .signupBtn {
   margin-bottom: 10px !important;
 }
-
 a {
   margin-bottom: 10px !important;
   color: black;
 }
-
 label {
   color: #8e7f7f;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 0.83em;
   font-weight: bold;
 }
-
 .formControl {
   margin-top: 5px;
   width: 100%;
 }
-
 .checkbox {
   padding: 0px !important;
   font-size: 1rem;
@@ -62,8 +101,10 @@ label {
   margin-left: 14px !important;
   margin-right: 14px !important;
 }
-.form div {
-  width: 100%;
+.form {
+  div {
+    width: 100%;
+  }
 }
 .backdrop {
   z-index: 1 !important;
@@ -86,9 +127,27 @@ label {
 .termsLink {
   cursor: pointer;
   text-decoration: underline;
+  &:hover {
+    color: #448e90;
+  }
 }
-.termsLink:hover {
-  color: #448e90;
+.snackbar {
+  position: inherit !important;
+  margin-left: 330px !important;
+}
+.floatRight {
+  float: right;
+  margin-right: 265px;
+}
+.fontSize15 {
+  font-size: 15px;
+  color: $foreground-color;
+}
+.marginBottom40 {
+  margin-bottom: 40px;
+}
+.linkBack {
+  color: $foreground-color;
 }
 @media screen and (max-width: 600px) {
   .paperTerms {
@@ -99,5 +158,6 @@ label {
   .paper {
     padding: 25px;
     margin-top: 0px;
+    margin-left: 0;
   }
 }

@@ -1,23 +1,21 @@
+@import "../../index.scss";
+
 .paddingBottom5 {
   padding-bottom: 5px;
-  filter: invert(var(--image-griditem-invert));
+  filter: $grid-item-invert;
 }
-
 .cardCustomStyle {
   display: flex;
   width: 100%;
 }
-
 .flex1 {
   flex: 1;
 }
-
 .linkCustomStyle {
   text-decoration: none;
   color: #1976d2;
   cursor: pointer;
 }
-
 .cardMediaCustomStyle {
   width: 160px;
 }

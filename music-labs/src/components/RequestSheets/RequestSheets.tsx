@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import emailjs from "emailjs-com";
-import styles from "./RequestSheets.module.css";
+import styles from "./RequestSheets.module.scss";
 import { Paper, Grid, TextField, Button, Alert, Snackbar } from "@mui/material";
 import AppContext from "../../context/app-context";
 import useValidation from "../../hooks/use-validation";

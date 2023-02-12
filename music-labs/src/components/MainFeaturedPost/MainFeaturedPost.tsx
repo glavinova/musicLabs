@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { IMainFeaturedPostProps } from "../../interfaces/app-interfaces";
-import styles from "./MainFeaturedPost.module.css";
+import styles from "./MainFeaturedPost.module.scss";
 
 export default function MainFeaturedPost(props: IMainFeaturedPostProps) {
   return (

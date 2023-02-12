@@ -98,7 +98,6 @@ describe("auth actions", () => {
       .onPost("https://reqres.in/api/login")
       .reply(200, { token: "QpwL5tke4Pnpja7X4" });
     store.dispatch(loginSuccess("QpwL5tke4Pnpja7X4"));
-    //store.dispatch(actions.authCheckState());
     const expectedActions = [
       {
         type: actionTypes.LOGIN_SUCCESS,

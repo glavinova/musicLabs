@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import Card from "@mui/material/Card";
 import Grid from "@mui/material/Grid";
-import styles from "./AboutUs.module.css";
+import styles from "./AboutUs.module.scss";
 
 function TeamCard(props: any) {
   return (
@@ -28,8 +28,8 @@ function TeamCard(props: any) {
             <Typography variant="h5" className={styles.fontBold}>
               {props.name}
             </Typography>
-            <Typography variant="h6" color={props.position.color} mb={1}>
-              {props.position.label}
+            <Typography variant="h6" color={props.color} mb={1}>
+              {props.label}
             </Typography>
             <Typography variant="body2">{props.description}</Typography>
           </Box>

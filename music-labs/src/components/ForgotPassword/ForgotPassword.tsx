@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import AppContext from "../../context/app-context";
 import useValidation from "../../hooks/use-validation";
 import validateEmail from "../../validators/validateEmail";
-import styles from "./ForgotPassword.module.css";
+import styles from "./ForgotPassword.module.scss";
 import { useEffect } from "react";
 
 const ForgotPassword = () => {

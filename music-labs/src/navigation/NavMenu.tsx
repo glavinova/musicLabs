@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import Toolbar from "@mui/material/Toolbar";
 import { Avatar, Button, Grid, Link, Typography } from "@mui/material";
 import appConstants from "../constants/app-constants";
-import styles from "./NavigationStyles.module.css";
+import styles from "./NavigationStyles.module.scss";
 import Login from "../components/Login/Login";
 import { connect } from "react-redux";
 import * as actions from "../store/actions/index";
@@ -40,10 +40,8 @@ function NavMenu(props: any) {
       <Toolbar
         component="nav"
         variant="dense"
-        className={styles.overflowXauto}
+        className={styles.firstToolbar}
         sx={{
-          display: "inline-block",
-          marginTop: "15px",
           marginBottom: props.isAuthenticated ? "25px" : "",
         }}
       >
@@ -60,13 +58,9 @@ function NavMenu(props: any) {
           </Link>
         ))}
       </Toolbar>
-      <Toolbar
-        component="nav"
-        variant="dense"
-        sx={{ display: "inline-block", float: "right", marginTop: "10px" }}
-      >
+      <Toolbar component="nav" variant="dense" className={styles.secondToolbar}>
         {!props.isAuthenticated ? (
-          <>
+          <Grid className={styles.navGrid}>
             <Button
               color="secondary"
               variant="contained"
@@ -88,18 +82,13 @@ function NavMenu(props: any) {
                 Sign up
               </Button>
             </Link>
-          </>
+          </Grid>
         ) : (
-          <>
+          <Grid className={styles.loggedNavGrid}>
             <Toolbar
               component="nav"
               variant="dense"
-              className={styles.overflowXauto}
-              sx={{
-                display: "inline-block",
-                marginTop: "5px",
-                paddingTop: "10px",
-              }}
+              className={styles.loggedUserToolbar}
             >
               <Typography className={styles.userName}>Eve Holt</Typography>
             </Toolbar>
@@ -107,7 +96,7 @@ function NavMenu(props: any) {
             <Avatar
               alt={userData.first_name + " " + userData.last_name}
               src={userData.avatar}
-              sx={{ width: 56, height: 56, display: "inline-block" }}
+              className={styles.avatar}
             />
             <br />
             <Button
@@ -117,7 +106,7 @@ function NavMenu(props: any) {
             >
               Logout
             </Button>
-          </>
+          </Grid>
         )}
       </Toolbar>
       <Grid>

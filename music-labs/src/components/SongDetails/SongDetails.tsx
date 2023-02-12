@@ -14,7 +14,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Link from "@mui/material/Link";
 import { useLocation } from "react-router";
-import styles from "./SongDetails.module.css";
+import styles from "./SongDetails.module.scss";
 import AppContext from "../../context/app-context";
 import DownloadButton from "../DownloadButton/DownloadBtn";
 import { connect } from "react-redux";
@@ -30,7 +30,7 @@ export function SongDetails(props: any) {
   return (
     <React.Fragment>
       <Grid item xs={12} md={6} className={styles.marginTop20}>
-        <CardActionArea component="span">
+        <CardActionArea component="span" sx={{ display: "flex" }}>
           <Card className={styles.cardCustomStyle}>
             <CardMedia
               component="img"
@@ -39,7 +39,7 @@ export function SongDetails(props: any) {
               image={appConstants.gridItemImageSrc}
               alt="songSheets"
             />
-            <CardContent sx={{ flex: 1 }}>
+            <CardContent sx={{ flex: 1, flexBasis: "calc((100% - 2px) / 3)" }}>
               <Typography component="h2" variant="h5">
                 {data.name}
               </Typography>
@@ -48,7 +48,7 @@ export function SongDetails(props: any) {
                 color="text.secondary"
                 className={styles.marginBottom20}
               >
-                BY {data.artist}
+                {data.artist}
               </Typography>
               <Typography variant="subtitle1" paragraph>
                 <b>Price:</b> ${data.price}
@@ -79,7 +79,7 @@ export function SongDetails(props: any) {
               )}
               {props.isAuthenticated ? <DownloadButton /> : <></>}
             </CardContent>
-            <CardContent sx={{ flex: 1 }}>
+            <CardContent sx={{ flex: 1, flexBasis: "calc((100% - 2px) / 3)" }}>
               <Typography
                 variant="subtitle1"
                 paragraph

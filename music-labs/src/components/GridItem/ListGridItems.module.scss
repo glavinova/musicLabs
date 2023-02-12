@@ -1,12 +1,13 @@
+@import "../../index.scss";
+
 .width100 {
   width: 100%;
 }
-
 .formControlCustomStyle {
   width: 20%;
   float: right;
+  margin: 10px -20px;
 }
-
 .select {
-  color: var(--color-foreground);
+  color: $foreground-color;
 }

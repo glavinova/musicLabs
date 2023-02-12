@@ -8,13 +8,19 @@ import CardMedia from "@mui/material/CardMedia";
 import appConstants from "../../constants/app-constants";
 import { ISongDetails } from "../../interfaces/app-interfaces";
 import { Link } from "react-router-dom";
-import styles from "./GridItem.module.css";
+import styles from "./GridItem.module.scss";
 
 export default function GridItem(props: ISongDetails) {
   const partText = props.parts === 1 ? "part" : "parts";
 
   return (
-    <Grid item xs={12} md={6} className={styles.paddingBottom5}>
+    <Grid
+      item
+      xs={12}
+      md={6}
+      className={styles.paddingBottom5}
+      data-testid="gridItem"
+    >
       <CardActionArea>
         <Card className={styles.cardCustomStyle}>
           <CardContent className={styles.flex1}>

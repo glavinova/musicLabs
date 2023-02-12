@@ -4,7 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import InputBase from "@mui/material/InputBase";
 import SearchIcon from "@mui/icons-material/Search";
 import AppContext from "../../context/app-context";
-import styles from "./SearchBar.module.css";
+import styles from "./SearchBar.module.scss";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
